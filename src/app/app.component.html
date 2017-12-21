@@ -1,0 +1,22 @@
+<div class="top-menu">
+  <h1>
+    <span (click)="goToMain()">VeganBot</span>
+    <span class="burger-icon" (click)="toggleMenu()">
+      <i class="fa fa-bars" aria-hidden="true" *ngIf="!isOpen"></i>
+      <i class="fa fa-times" aria-hidden="true" *ngIf="isOpen"></i>
+    </span>
+  </h1>
+  <h5>{{selectedBot.title}} mode</h5>
+</div>
+<div [ngClass]="{'menu-open' : isOpen}" class="menu-container">
+  <div class="menu-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
+    <i *ngIf="item.value === 'Select Bot'" class="fa fa-cog " aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Source Code'" class="fa fa-code" aria-hidden="true"></i>
+    <span>{{item.value}}</span>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

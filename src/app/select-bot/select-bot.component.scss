@@ -1,0 +1,13 @@
+.select-bot-page {
+  background-color: #666;
+  color: white;
+  .selected {
+    background-color: orange;
+  }
+  .bot-item {
+    border-bottom: 1px solid #333;
+    .bot-title {
+      font-size: 20px;
+    }
+  }
+}

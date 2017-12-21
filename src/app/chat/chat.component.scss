@@ -1,0 +1,53 @@
+.answer {
+  padding-bottom: 50px;
+}
+.answer * {
+  line-height: 1.4;
+}
+.answer-source {
+  font-style: italic;
+  color: #666;
+}
+.link-in-answer {
+  word-break: break-all;
+  font-size: 13px;
+  line-height: 0;
+}
+.chat-input {
+  width: calc(100% - 40px);
+  padding: 20px;
+  border: 1px solid #999;
+  font-size: 20px;
+  font-family: inherit;
+}
+.your-input-header {
+  margin-top: 30px;
+  color: orangered;
+}
+.bot-answer-header {
+  color: teal;
+}
+.your-input-header,
+.bot-answer-header {
+  margin-bottom: 5px;
+}
+.paragraph {
+  margin-bottom: 20px;
+}
+.paragraph-text {
+  width: 100%;
+}
+.cursor {
+  animation: blink-animation 1s step-start 0s infinite;
+  -webkit-animation: blink-animation 1s step-start 0s infinite;
+}
+@keyframes blink-animation {
+  50% {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  50% {
+    visibility: hidden;
+  }
+}

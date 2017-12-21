@@ -1,0 +1,53 @@
+.top-menu {
+  padding: 14px 24px;
+  background-color: #333;
+  color: white;
+
+  .burger-icon {
+    float: right;
+    i {
+      margin-top: 12px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+  }
+  h5 {
+    margin: 5px 0 0 0;
+  }
+}
+
+.menu-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  right: -100%;
+  z-index: 1;
+  transition: 0.4s;
+  background-color: #444;
+  border-top: 1px solid #999;
+  opacity: 0.9;
+  
+  .menu-item {
+    font-size: 24px;
+    color: white;
+    padding: 25px;
+    border-bottom: 1px solid #999;
+
+    &:hover {
+      background-color: teal;
+    }
+
+    i {
+      width: 30px;
+      text-align: center;
+    }
+  }
+}
+
+.menu-open {
+  transition: 0.4s;
+  right: 0;
+}
+

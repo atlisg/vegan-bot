@@ -7,10 +7,12 @@
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
-* Push to git repo
 * Implement stats (hits for each answer and each source)
+* Implement a "Share" button
 
 ### In Progress
+
+* Push to git repo
 
 ### Done
 
