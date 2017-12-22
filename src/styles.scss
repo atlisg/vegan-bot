@@ -30,3 +30,8 @@ body {
     font-size: 12px;
   }
 }
+.simple-notification-wrapper {
+  right: 24px !important;
+  bottom: 14px !important;
+  width: calc(100% - 48px) !important;
+}

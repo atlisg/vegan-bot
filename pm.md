@@ -4,15 +4,18 @@
 
 * About page
 * Bot drawings for backgrounds
+* Implement stats (hits for each answer and each source)
+* Change editor settings, e.g. `trailing-commas: true`
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
-* Implement stats (hits for each answer and each source)
-* Implement a "Share" button
+* Deploy to server
+* Make it work for all screen sizes (developed for mobile)
+* Fix vegansidekick service so that the trailing questions don't get shown
 
 ### In Progress
 
-* Push to git repo
+* Implement a "Share" button
 
 ### Done
 
@@ -46,3 +49,4 @@
 * Refactor python scripts into one
 * Refactor jsonifyer.py
 * Compare outputs between new and old scripts to make sure jsonifyer.py is not breaking anything
+* Push to git repo

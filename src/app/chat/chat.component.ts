@@ -14,6 +14,7 @@ import {
 } from "@angular/animations";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
+import { NotificationsService } from "angular2-notifications";
 import { VeganSidekickService } from "../answer-services/vegansidekick.service";
 import { VeganNutritionistaService } from "../answer-services/vegannutritionista.service";
 import { VeganComService } from "../answer-services/vegan.com.service";
@@ -60,7 +61,8 @@ export class SafeHtmlPipe implements PipeTransform {
     trigger("yourInputHeaderState", triggerOptions(0)),
     trigger("yourInputState", triggerOptions(400)),
     trigger("botAnswerHeaderState", triggerOptions(800)),
-    trigger("botAnswerState", triggerOptions(1200))
+    trigger("botAnswerState", triggerOptions(1200)),
+    trigger("shareButtonState", triggerOptions(2000))
   ]
 })
 export class ChatComponent implements OnInit {
@@ -71,6 +73,7 @@ export class ChatComponent implements OnInit {
   state: string = "inactive";
   placeholders: Array<string>;
   nextPlace: number;
+  options: any;
 
   constructor(
     private elementRef: ElementRef,
@@ -82,7 +85,8 @@ export class ChatComponent implements OnInit {
     private antsService: AntsService,
     private allTogetherService: AllTogetherService,
     private vivaService: VivaService,
-    private router: Router
+    private router: Router,
+    private _notificationsService: NotificationsService
   ) {
     this.writer = [""];
     this.placeholders = [
@@ -96,6 +100,9 @@ export class ChatComponent implements OnInit {
     this.answers = this[this.selectedBot.serviceName]
       ? this[this.selectedBot.serviceName].answers
       : [];
+    this.options = {
+      timeOut: 5000
+    };
   }
 
   ngOnInit() {
@@ -174,5 +181,19 @@ export class ChatComponent implements OnInit {
       this.state = "active";
     }, 100);
     this.router.navigate(["/chat", this.selectedBot.index, event.index]);
+  }
+
+  share() {
+    const url = "http://www.veganbot.com" + this.router.url;
+    let textArea = document.createElement("textarea");
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    this._notificationsService.success(
+      "Copied to clipboard",
+      "Paste the link anywhere"
+    );
+    document.body.removeChild(textArea);
   }
 }

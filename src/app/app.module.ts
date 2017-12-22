@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { Ng2AutoCompleteModule } from "ng2-auto-complete";
+import { SimpleNotificationsModule } from "angular2-notifications";
 
 import { AppComponent } from "./app.component";
 import { IntroComponent } from "./intro/intro.component";
@@ -32,7 +33,8 @@ import { AppRoutingModule } from "./app-routing.module";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    Ng2AutoCompleteModule
+    Ng2AutoCompleteModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     SelectBotService,
