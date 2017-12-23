@@ -105,6 +105,28 @@ def addAntsAnswers(lines, answers):
       if not isTitle(line):
         answers[i-2]['answer'].append(line)
 
+# Helper for addSidekickAnswers()
+def getSidekickAnswerKeys(answers):
+  answerKeys = [
+    'Yeah but what about free range?',
+    'Yeah but what about humane slaughter?',
+    'Yeah but some animals are to be killed some aren\'t',
+    'Yeah but it doesn\'t harm animals to kill them',
+  ]
+  for answer in answers:
+    answerKeys.append(answer['key'])
+  return answerKeys
+
+# Same as addAnswers() but only for "Vegan Sidekick"
+def addSidekickAnswers(lines, answers):
+  answerKeys = getSidekickAnswerKeys(answers)
+  i = -1
+  for line in lines:
+    if line[0].isdigit():
+      i += 1
+    elif line.strip() not in answerKeys:
+      answers[i]['answer'].append(line)
+
 # Split file into lines and get rid of empty lines
 def split_file(file):
   lines = file.read().splitlines()
@@ -129,17 +151,21 @@ def getKeys(lines, source):
       if source['filename'] == 'vegansidekick':
         one = 0
       answers.append({
-        'key': line[start+1:],
+        'key': line[start+1:].strip(),
         'source': source['title'],
         'index': source['index_prefix'] + line[:start-one],
         'answer': []
       })
   return answers
 
+
 # Add answers to the answers array
 def addAnswers(source, lines, answers):
   if source['filename'] == 'ants':
     addAntsAnswers(lines, answers)
+    return
+  if source['filename'] == 'vegansidekick':
+    addSidekickAnswers(lines, answers)
     return
   i = -1
   for line in lines:

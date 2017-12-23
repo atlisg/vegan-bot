@@ -11,11 +11,10 @@
   * some more
 * Deploy to server
 * Make it work for all screen sizes (developed for mobile)
-* Fix vegansidekick service so that the trailing questions don't get shown
 
 ### In Progress
 
-* Implement a "Share" button
+* Fix vegansidekick service so that the trailing questions don't get shown
 
 ### Done
 
@@ -50,3 +49,5 @@
 * Refactor jsonifyer.py
 * Compare outputs between new and old scripts to make sure jsonifyer.py is not breaking anything
 * Push to git repo
+* Implement a "Share" button
+* Update angular-cli to 1.6.2 or latest or something
