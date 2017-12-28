@@ -1,8 +1,28 @@
 .top-menu {
-  padding: 14px 24px;
+  position: fixed;
   background-color: #333;
   color: white;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  font-size: 32px;
 
+  .main-title {
+    cursor: pointer;
+  }
+  .subtitle {
+    font-size: 13px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+
+  .bot-icon {
+    float: left;
+    i {
+      margin-top: 12px;
+    }
+  }
   .burger-icon {
     float: right;
     i {
@@ -10,11 +30,8 @@
     }
   }
 
-  h1 {
-    margin: 0;
-  }
-  h5 {
-    margin: 5px 0 0 0;
+  .top-menu-content {
+    padding: 14px 34px;
   }
 }
 
@@ -28,7 +45,8 @@
   background-color: #444;
   border-top: 1px solid #999;
   opacity: 0.9;
-  
+  max-width: 414px;
+
   .menu-item {
     font-size: 24px;
     color: white;
@@ -46,8 +64,70 @@
   }
 }
 
+.select-bot-container {
+  left: -100%;
+
+  .bot-item {
+    cursor: pointer;
+
+    .bot-title {
+      font-size: 20px;
+    }
+    .bot-answer-count {
+      font-size: 13px;
+    }
+  }
+
+  .selected {
+    background-color: orange;
+  }
+}
+
 .menu-open {
   transition: 0.4s;
   right: 0;
 }
+.select-bot-open {
+  left: 0;
+}
+.app-content {
+  max-width: 768px;
+  margin: 85px auto 0;
+}
 
+.big-menu-bar,
+.big-bot-selector {
+  font-size: 16px;
+  margin-top: 18px;
+  width: 200px;
+  cursor: pointer;
+  .big-menu-bar-item {
+    margin: 0 20px;
+    font-weight: normal;
+    font-family: inherit;
+    color: white;
+    font-size: inherit;
+  }
+}
+.big-menu-bar {
+  float: right;
+  text-align: right;
+}
+.big-bot-selector {
+  float: left;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .burger-icon,
+  .bot-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .big-menu-bar,
+  .big-bot-selector {
+    display: none;
+  }
+}

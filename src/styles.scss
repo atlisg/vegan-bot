@@ -11,10 +11,10 @@ button {
   font-family: Inconsolata, Courier, monospace;
 }
 body {
-  margin: 0;
+  margin: 0 auto;
 }
 .content {
-  padding: 24px 24px;
+  padding: 24px;
 }
 .ng2-auto-complete {
   border: 2px solid #999;
@@ -34,4 +34,6 @@ body {
   right: 24px !important;
   bottom: 14px !important;
   width: calc(100% - 48px) !important;
+  max-width: 366px;
+  left: unset !important;
 }

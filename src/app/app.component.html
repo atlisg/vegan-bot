@@ -1,22 +1,42 @@
 <div class="top-menu">
-  <h1>
-    <span (click)="goToMain()">VeganBot</span>
+  <div class="top-menu-content">
+    <span class="bot-icon" (click)="toggleBotMenu()">
+      <i class="fa fa-chevron-right" aria-hidden="true" *ngIf="!isSelectBotOpen"></i>
+      <i class="fa fa-chevron-left" aria-hidden="true" *ngIf="isSelectBotOpen"></i>
+    </span>
+    <div class="big-bot-selector" (click)="toggleBotMenu()">
+      <span>Select Bot</span>
+      <i class="fa fa-chevron-right" aria-hidden="true" *ngIf="!isSelectBotOpen"></i>
+      <i class="fa fa-chevron-left" aria-hidden="true" *ngIf="isSelectBotOpen"></i>
+    </div>
+    <span class="main-title" (click)="goToMain()">VeganBot</span>
     <span class="burger-icon" (click)="toggleMenu()">
       <i class="fa fa-bars" aria-hidden="true" *ngIf="!isOpen"></i>
       <i class="fa fa-times" aria-hidden="true" *ngIf="isOpen"></i>
     </span>
-  </h1>
-  <h5>{{selectedBot.title}} mode</h5>
+    <span class="big-menu-bar">
+      <span class="big-menu-bar-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
+        <span>{{item.value}}</span>
+        <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
+        <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
+      </span>
+    </span>
+    <div class="subtitle" (click)="toggleBotMenu()">{{selectedBot.title}} mode</div>
+  </div>
 </div>
 <div [ngClass]="{'menu-open' : isOpen}" class="menu-container">
   <div class="menu-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
-    <i *ngIf="item.value === 'Select Bot'" class="fa fa-cog " aria-hidden="true"></i>
     <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
     <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
-    <i *ngIf="item.value === 'Source Code'" class="fa fa-code" aria-hidden="true"></i>
     <span>{{item.value}}</span>
   </div>
 </div>
-<div>
+<div [ngClass]="{'menu-open select-bot-open' : isSelectBotOpen}" class="menu-container select-bot-container">
+  <div class="menu-item bot-item" [ngClass]="{ 'selected' : isBotSelected(bot) }" *ngFor="let bot of bots" (click)="selectBot(bot)">
+    <div class="bot-title">{{bot.title}}</div>
+    <div class="bot-answer-count">{{bot.answerCount}} Answers</div>
+  </div>
+</div>
+<div class="app-content">
   <router-outlet></router-outlet>
 </div>

@@ -41,12 +41,21 @@
   animation: blink-animation 1s step-start 0s infinite;
   -webkit-animation: blink-animation 1s step-start 0s infinite;
 }
-.share-button {
+.share-button-container {
   width: 100%;
   height: 65px;
+  text-align: center;
+}
+.share-button {
   background-color: teal;
+  border: none;
+  max-width: 366px;
   font-size: 32px;
   color: white;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: auto 0;
   border: none;
 }
 @keyframes blink-animation {

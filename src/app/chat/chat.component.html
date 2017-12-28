@@ -16,6 +16,8 @@
       </div>
     </div>
   </div>
-  <button class="share-button" (click)="share()" [@shareButtonState]="state">SHARE ANSWER</button>
+  <div class="share-button-container">
+    <button class="share-button" (click)="share()" [@shareButtonState]="state">SHARE ANSWER</button>
+  </div>
   <simple-notifications [options]="options"></simple-notifications>
 </div>

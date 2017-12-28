@@ -13,21 +13,22 @@ import { Bot } from "./models/bot.interface";
 export class AppComponent implements OnInit, OnDestroy {
   private botSubscription: Subscription;
   isOpen: boolean = false;
+  isSelectBotOpen: boolean = false;
   selectedBot: Bot;
+  bots: Array<Bot>;
+  menuItems: Array<Object>;
 
   constructor(
     private router: Router,
     private selectBotService: SelectBotService
   ) {
     this.selectedBot = this.selectBotService.getCurrentBot();
+    this.bots = this.selectBotService.bots;
+    this.menuItems = [
+      { route: "/about", value: "About" },
+      { route: "/intro", value: "Help" }
+    ];
   }
-
-  menuItems = [
-    { route: "/select-bot", value: "Select Bot" },
-    { route: "/about", value: "About" },
-    { route: "/intro", value: "Help" },
-    { route: "external", value: "Source Code" }
-  ];
 
   ngOnInit() {
     this.botSubscription = this.selectBotService.bot.subscribe(b => {
@@ -41,16 +42,31 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   selectItem(item) {
-    if (item.route !== "external") {
-      this.toggleMenu();
-      this.router.navigate([item.route]);
-    } else {
-      console.log("Link to GitHub repo.");
-    }
+    this.toggleMenu();
+    this.router.navigate([item.route]);
+  }
+
+  selectBot(bot) {
+    this.toggleBotMenu();
+    this.selectedBot = bot;
+    this.selectBotService.botChanged(bot);
+    this.router.navigate(["/chat", this.selectedBot.index]);
+  }
+
+  isMobile() {
+    return document.body.clientWidth < 768;
   }
 
   toggleMenu() {
-    this.isOpen = !this.isOpen;
+    this.isOpen = this.isMobile() ? !this.isOpen : false;
+  }
+
+  toggleBotMenu() {
+    this.isSelectBotOpen = !this.isSelectBotOpen;
+  }
+
+  isBotSelected(bot) {
+    return bot.index === this.selectedBot.index;
   }
 
   ngOnDestroy() {

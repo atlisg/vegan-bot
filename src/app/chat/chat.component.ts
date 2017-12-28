@@ -101,7 +101,8 @@ export class ChatComponent implements OnInit {
       ? this[this.selectedBot.serviceName].answers
       : [];
     this.options = {
-      timeOut: 5000
+      timeOut: 5000,
+      maxStack: 1
     };
   }
 

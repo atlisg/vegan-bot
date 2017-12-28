@@ -2,7 +2,12 @@
 
 ### Open
 
+* Get rid of unused select-bot component
+* Pick some default FAQ to display in dropdown on 0 letters in autocomplete
+* Ask sources for a public API with the answers so that we don't need to jsonify
+* Update readme
 * About page
+  * Remember to have the github repo link somewhere
 * Bot drawings for backgrounds
 * Implement stats (hits for each answer and each source)
 * Change editor settings, e.g. `trailing-commas: true`
@@ -10,11 +15,22 @@
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
 * Deploy to server
-* Make it work for all screen sizes (developed for mobile)
+* Change python scripts to scrapers when needed
+* Make clickable areas bigger for select-bot, about, help, etc.
+* Click outside menu bar should close it
+* Click outside select bot should close it
 
 ### In Progress
 
-* Fix vegansidekick service so that the trailing questions don't get shown
+* Make it work for all screen sizes (not only mobile)
+  * Top bar fixed position
+  * Set max-width for app-content
+  * Set max-width for buttons
+  * Set max-width for notifications
+  * Change burger into topbar on desktop
+* Remove Source Code from menu
+* Refactor Select Bot to a dropdown
+* Test everything before committing
 
 ### Done
 
@@ -51,3 +67,4 @@
 * Push to git repo
 * Implement a "Share" button
 * Update angular-cli to 1.6.2 or latest or something
+* Fix vegansidekick service so that the trailing questions don't get shown
