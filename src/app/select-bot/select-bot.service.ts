@@ -12,6 +12,10 @@ import { VivaService } from "../answer-services/viva.service";
 
 @Injectable()
 export class SelectBotService {
+  public bots: Array<Bot>;
+  private botSource: BehaviorSubject<Bot>;
+  public bot: any;
+
   constructor(
     private veganSidekickService: VeganSidekickService,
     private veganNutritionistaService: VeganNutritionistaService,
@@ -20,54 +24,54 @@ export class SelectBotService {
     private antsService: AntsService,
     private allTogetherService: AllTogetherService,
     private vivaService: VivaService
-  ) {}
-
-  public bots: Array<Bot> = [
-    {
-      title: "All sources",
-      index: "all-sources",
-      answerCount: this.allTogetherService.answers.length,
-      serviceName: "allTogetherService"
-    },
-    {
-      title: "Vegan Sidekick",
-      index: "vegan-sidekick",
-      answerCount: this.veganSidekickService.answers.length,
-      serviceName: "veganSidekickService"
-    },
-    {
-      title: "Vegan Nutritionista",
-      index: "vegan-nutritionista",
-      answerCount: this.veganNutritionistaService.answers.length,
-      serviceName: "veganNutritionistaService"
-    },
-    {
-      title: "Vegan.com",
-      index: "vegan-com",
-      answerCount: this.veganComService.answers.length,
-      serviceName: "veganComService"
-    },
-    {
-      title: "VeganEasy",
-      index: "vegan-easy",
-      answerCount: this.veganEasyService.answers.length,
-      serviceName: "veganEasyService"
-    },
-    {
-      title: "But you kill ants",
-      index: "ants",
-      answerCount: this.antsService.answers.length,
-      serviceName: "antsService"
-    },
-    {
-      title: "Viva",
-      index: "viva",
-      answerCount: this.vivaService.answers.length,
-      serviceName: "vivaService"
-    }
-  ];
-  private botSource: BehaviorSubject<Bot> = new BehaviorSubject(this.bots[0]);
-  public bot = this.botSource.asObservable();
+  ) {
+    this.bots = [
+      {
+        title: "All sources",
+        index: "all-sources",
+        answerCount: this.allTogetherService.answers.length,
+        serviceName: "allTogetherService"
+      },
+      {
+        title: "Vegan Sidekick",
+        index: "vegan-sidekick",
+        answerCount: this.veganSidekickService.answers.length,
+        serviceName: "veganSidekickService"
+      },
+      {
+        title: "Vegan Nutritionista",
+        index: "vegan-nutritionista",
+        answerCount: this.veganNutritionistaService.answers.length,
+        serviceName: "veganNutritionistaService"
+      },
+      {
+        title: "Vegan.com",
+        index: "vegan-com",
+        answerCount: this.veganComService.answers.length,
+        serviceName: "veganComService"
+      },
+      {
+        title: "VeganEasy",
+        index: "vegan-easy",
+        answerCount: this.veganEasyService.answers.length,
+        serviceName: "veganEasyService"
+      },
+      {
+        title: "But you kill ants",
+        index: "ants",
+        answerCount: this.antsService.answers.length,
+        serviceName: "antsService"
+      },
+      {
+        title: "Viva",
+        index: "viva",
+        answerCount: this.vivaService.answers.length,
+        serviceName: "vivaService"
+      }
+    ];
+    this.botSource = new BehaviorSubject(this.bots[0]);
+    this.bot = this.botSource.asObservable();
+  }
 
   public botChanged(value: Bot) {
     this.botSource.next(value);
@@ -75,5 +79,9 @@ export class SelectBotService {
 
   public getCurrentBot() {
     return this.botSource.value;
+  }
+
+  public getBot(index: string) {
+    return this.bots.find(bot => bot.index === index) || undefined;
   }
 }

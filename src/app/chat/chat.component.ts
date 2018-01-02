@@ -65,10 +65,9 @@ export class SafeHtmlPipe implements PipeTransform {
     trigger("shareButtonState", triggerOptions(2000))
   ]
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent {
   selectedBot: Bot;
   selectedAnswer: Answer;
-  writer: Array<string>;
   answers: Array<Answer>;
   state: string = "inactive";
   placeholders: Array<string>;
@@ -88,7 +87,6 @@ export class ChatComponent implements OnInit {
     private router: Router,
     private _notificationsService: NotificationsService
   ) {
-    this.writer = [""];
     this.placeholders = [
       "Lets talk",
       "Chat with me",
@@ -96,71 +94,33 @@ export class ChatComponent implements OnInit {
       "What's up?"
     ];
     this.nextPlace = 0;
-    this.selectedBot = this.selectBotService.getCurrentBot();
+    const url = this.router.url.split("/");
+    const botIndex = url[2];
+    this.selectedBot = this.selectBotService.getBot(botIndex);
+    if (!this.selectedBot) {
+      this.router.navigate(["/intro"]);
+      return;
+    }
+    if (this.selectedBot !== this.selectBotService.getCurrentBot()) {
+      this.selectBotService.botChanged(this.selectedBot);
+    }
     this.answers = this[this.selectedBot.serviceName]
       ? this[this.selectedBot.serviceName].answers
       : [];
+    if (url.length > 3) {
+      const answerIndex = url[3];
+      this.selectedAnswer = this.answers.find(
+        value => value.index === answerIndex
+      );
+      if (!this.selectedAnswer) {
+        this.router.navigate(["/intro"]);
+        return;
+      }
+    }
     this.options = {
       timeOut: 5000,
       maxStack: 1
     };
-  }
-
-  ngOnInit() {
-    const url = this.router.url.split("/");
-    if (url.length > 3) {
-      this.selectedAnswer = this.answers.find(value => value.index === url[3]);
-    }
-  }
-
-  write() {
-    for (let x of this.selectedAnswer.answer) {
-      this.writer.push("");
-    }
-    let i = 0;
-    let p = 0;
-
-    const scrollDown = () => {
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        left: 0,
-        behavior: "smooth"
-      });
-      /* console.log("scrolling");
-      console.log("p: " + p);
-      console.log("this.writer[p]: " + this.writer[p]);
-      console.log(
-        "this.selectedAnswer.answer[p]: " + this.selectedAnswer.answer[p]
-      ); */
-      if (p === this.selectedAnswer.answer.length) return;
-      setTimeout(scrollDown, 2500);
-    };
-
-    let hasBegun = false;
-    const typewriterEffect = () => {
-      if (
-        window.document.getElementById("body").clientHeight >
-          window.innerHeight &&
-        !hasBegun
-      ) {
-        /* console.log("starting scroll"); */
-        setTimeout(scrollDown, 10);
-        hasBegun = true;
-      }
-      if (p < this.selectedAnswer.answer.length) {
-        if (i < this.selectedAnswer.answer[p].length) {
-          this.writer[p] += this.selectedAnswer.answer[p][i];
-          i++;
-          setTimeout(typewriterEffect, 20);
-        } else {
-          p++;
-          i = 0;
-          setTimeout(typewriterEffect, 500);
-        }
-      }
-    };
-
-    setTimeout(typewriterEffect, 20);
   }
 
   formatAnswer(answer) {
@@ -168,7 +128,6 @@ export class ChatComponent implements OnInit {
   }
 
   formatList(answer) {
-    /* return `${answer.key} </br> ${answer.source}`; */
     return `<div class="answer-key">${
       answer.key
     }</div><div class="answer-source">source: ${answer.source}</div>`;
