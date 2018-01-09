@@ -77,7 +77,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   isMobile() {
-    return document.body.clientWidth < 768;
+    return document.body.clientWidth <= 768;
   }
 
   toggleMenu() {
