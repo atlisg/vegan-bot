@@ -14,17 +14,18 @@
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
+* Make app for iOS
+* Make app for Android
 * Deploy to server
 * Implement "Not Found" page
 * Change python scripts to scrapers when needed
 * Make clickable areas bigger for select-bot, about, help, etc.
 * Share button bug that Ægir found
-* Click outside menu bar should close it
-* Click outside select bot should close it
 
 ### In Progress
 
-* Fix select bot logic with regard to url params and subscriptions
+* Click outside menu bar should close it
+* Click outside select bot should close it
 
 ### Done
 
@@ -70,3 +71,4 @@
   * Change burger into topbar on desktop
 * Remove Source Code from menu
 * Refactor Select Bot to a dropdown
+* Fix select bot logic with regard to url params and subscriptions

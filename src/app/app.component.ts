@@ -8,7 +8,10 @@ import { Bot } from "./models/bot.interface";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
+  host: {
+    "(document:click)": "onClick($event)"
+  }
 })
 export class AppComponent implements OnInit, OnDestroy {
   private botSubscription: Subscription;
@@ -28,6 +31,26 @@ export class AppComponent implements OnInit, OnDestroy {
       { route: "/about", value: "About" },
       { route: "/intro", value: "Help" }
     ];
+  }
+
+  onClick(event) {
+    const elem = event.target;
+    // If user is not opening a sidemenu, we close them both.
+    if (
+      !elem.classList.contains("fa-bars") &&
+      !elem.classList.contains("burger-icon") &&
+      !elem.classList.contains("fa-chevron-right") &&
+      !elem.classList.contains("bot-icon") &&
+      !elem.classList.contains("big-bot-selector") &&
+      !elem.classList.contains("subtitle") &&
+      !(
+        elem.parentElement &&
+        elem.parentElement.classList.contains("big-bot-selector")
+      )
+    ) {
+      this.isSelectBotOpen = false;
+      this.isOpen = false;
+    }
   }
 
   ngOnInit() {
@@ -59,10 +82,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   toggleMenu() {
     this.isOpen = this.isMobile() ? !this.isOpen : false;
+    if (this.isOpen) this.isSelectBotOpen = false;
   }
 
   toggleBotMenu() {
     this.isSelectBotOpen = !this.isSelectBotOpen;
+    if (this.isSelectBotOpen) this.isOpen = false;
   }
 
   isBotSelected(bot) {
