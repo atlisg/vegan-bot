@@ -8,9 +8,6 @@
     <h3 class="bot-answer-header" [@botAnswerHeaderState]="state">{{selectedAnswer.source}}:</h3>
     <div class="bot-answer" [@botAnswerState]="state">
       <div *ngFor="let paragraph of selectedAnswer.answer; let i = index" class="paragraph">
-        <!-- <span *ngIf="writer[i] && writer[i].substr(0,4) !== 'http'" class="paragraph-text">{{writer[i]}}
-          <span *ngIf="writer[i] && writer[i] !== paragraph" class="cursor">_</span>
-        </span> -->
         <span *ngIf="paragraph && paragraph.substr(0,4) !== 'http'">{{paragraph}}</span>
         <a *ngIf="paragraph && paragraph.substr(0,4) === 'http'" target="_blank" href="{{paragraph}}" class="link-in-answer">{{paragraph}}</a>
       </div>

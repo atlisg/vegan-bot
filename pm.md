@@ -19,11 +19,10 @@
 * Deploy to server
 * Implement "Not Found" page
 * Change python scripts to scrapers when needed
-* Make clickable areas bigger for select-bot, about, help, etc.
 
 ### In Progress
 
-* Share button bug that Ægir found
+* Make clickable areas bigger for select-bot, about, help, etc.
 
 ### Done
 
@@ -72,3 +71,4 @@
 * Fix select bot logic with regard to url params and subscriptions
 * Click outside menu bar should close it
 * Click outside select bot should close it
+* Share button bug that Ægir found

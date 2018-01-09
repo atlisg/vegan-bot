@@ -8,13 +8,23 @@
   text-align: center;
   font-size: 32px;
 
-  .main-title {
-    cursor: pointer;
-  }
-  .subtitle {
-    font-size: 13px;
-    margin-top: 5px;
-    cursor: pointer;
+  .title-container {
+    flex-grow: 2;
+    display: flex;
+    .title-sides {
+      flex-grow: 5;
+    }
+    .title-buttons {
+      flex-grow: 1;
+    }
+    .main-title {
+      cursor: pointer;
+    }
+    .subtitle {
+      font-size: 13px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
   }
 
   .bot-icon {
@@ -36,6 +46,7 @@
 
   .top-menu-content {
     padding: 14px 34px;
+    display: flex;
   }
 }
 
@@ -102,11 +113,10 @@
 .big-menu-bar,
 .big-bot-selector {
   font-size: 16px;
-  margin-top: 18px;
   width: 200px;
   cursor: pointer;
   .big-menu-bar-item {
-    margin: 0 20px;
+    padding: 18px 20px;
     font-weight: normal;
     font-family: inherit;
     color: white;
@@ -114,12 +124,12 @@
   }
 }
 .big-menu-bar {
-  float: right;
   text-align: right;
+  margin-top: 18px;
 }
 .big-bot-selector {
-  float: left;
   text-align: left;
+  padding-top: 18px;
 }
 
 @media (min-width: 769px) {
