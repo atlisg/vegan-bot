@@ -3,4 +3,5 @@ export interface Bot {
   index: string;
   answerCount: number;
   serviceName: string;
+  homepage: string;
 }

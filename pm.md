@@ -6,8 +6,6 @@
 * Pick some default FAQ to display in dropdown on 0 letters in autocomplete
 * Ask sources for a public API with the answers so that we don't need to jsonify
 * Update readme
-* About page
-  * Remember to have the github repo link somewhere
 * Bot drawings for backgrounds
 * Implement stats (hits for each answer and each source)
 * Change editor settings, e.g. `trailing-commas: true`
@@ -22,7 +20,9 @@
 
 ### In Progress
 
-* Make clickable areas bigger for select-bot, about, help, etc.
+* About page
+  * Remember to have the github repo link somewhere
+* Intro page
 
 ### Done
 
@@ -72,3 +72,4 @@
 * Click outside menu bar should close it
 * Click outside select bot should close it
 * Share button bug that Ægir found
+* Make clickable areas bigger for select-bot, about, help, etc.

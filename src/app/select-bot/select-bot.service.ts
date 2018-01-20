@@ -30,43 +30,50 @@ export class SelectBotService {
         title: "All sources",
         index: "all-sources",
         answerCount: this.allTogetherService.answers.length,
-        serviceName: "allTogetherService"
+        serviceName: "allTogetherService",
+        homepage: "http://veganbot.com"
       },
       {
         title: "Vegan Sidekick",
         index: "vegan-sidekick",
         answerCount: this.veganSidekickService.answers.length,
-        serviceName: "veganSidekickService"
+        serviceName: "veganSidekickService",
+        homepage: "http://vegansidekick.com/"
       },
       {
         title: "Vegan Nutritionista",
         index: "vegan-nutritionista",
         answerCount: this.veganNutritionistaService.answers.length,
-        serviceName: "veganNutritionistaService"
+        serviceName: "veganNutritionistaService",
+        homepage: "https://www.vegan-nutritionista.com/"
       },
       {
         title: "Vegan.com",
         index: "vegan-com",
         answerCount: this.veganComService.answers.length,
-        serviceName: "veganComService"
+        serviceName: "veganComService",
+        homepage: "https://www.vegan.com/"
       },
       {
         title: "VeganEasy",
         index: "vegan-easy",
         answerCount: this.veganEasyService.answers.length,
-        serviceName: "veganEasyService"
+        serviceName: "veganEasyService",
+        homepage: "https://www.veganeasy.org/"
       },
       {
         title: "But you kill ants",
         index: "ants",
         answerCount: this.antsService.answers.length,
-        serviceName: "antsService"
+        serviceName: "antsService",
+        homepage: "http://www.veganaustralia.org.au/but_you_kill_ants"
       },
       {
         title: "Viva",
         index: "viva",
         answerCount: this.vivaService.answers.length,
-        serviceName: "vivaService"
+        serviceName: "vivaService",
+        homepage: "https://www.viva.org.uk/"
       }
     ];
     this.botSource = new BehaviorSubject(this.bots[0]);
