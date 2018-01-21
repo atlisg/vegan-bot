@@ -9,8 +9,7 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor",
-    "prettier":
-      "prettier --write --single-quote  --trailing-comma es5 --print-width 100 \"src/**/*.ts\""
+    "prettier": "prettier --write --single-quote  --trailing-comma es5 --print-width 100 \"src/**/*.ts\""
   },
   "private": true,
   "dependencies": {
@@ -24,8 +23,12 @@
     "@angular/platform-browser-dynamic": "^5.1.2",
     "@angular/platform-server": "^5.1.2",
     "@angular/router": "^5.1.2",
+    "@ngx-share/button": "^5.0.0",
+    "@ngx-share/buttons": "^5.0.0",
+    "@ngx-share/core": "^5.0.0",
     "angular2-notifications": "^0.9.6",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "ng2-auto-complete": "^0.12.0",
     "rxjs": "^5.5.6",
     "ts-helpers": "^1.1.1",

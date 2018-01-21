@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { HttpClientModule } from '@angular/common/http';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
@@ -29,6 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     Ng2AutoCompleteModule,
     SimpleNotificationsModule.forRoot(),
+    HttpClientModule,
+    ShareButtonsModule.forRoot(),
   ],
   providers: [
     SelectBotService,

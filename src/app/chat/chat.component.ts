@@ -3,6 +3,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { HttpModule } from '@angular/http';
+import { Subscription } from 'rxjs/Rx';
 import { VeganSidekickService } from '../answer-services/vegansidekick.service';
 import { VeganNutritionistaService } from '../answer-services/vegannutritionista.service';
 import { VeganComService } from '../answer-services/vegan.com.service';
@@ -53,7 +55,8 @@ export class SafeHtmlPipe implements PipeTransform {
     trigger('shareButtonState', triggerOptions(2000)),
   ],
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
+  private botSubscription: Subscription;
   selectedBot: Bot;
   selectedAnswer: Answer;
   answers: Array<Answer>;
@@ -104,6 +107,15 @@ export class ChatComponent {
     };
   }
 
+  ngOnInit() {
+    this.botSubscription = this.selectBotService.bot.subscribe(b => {
+      this.selectedBot = b;
+      this.answers = this[this.selectedBot.serviceName]
+        ? this[this.selectedBot.serviceName].answers
+        : [];
+    });
+  }
+
   formatAnswer(answer) {
     return '';
   }
@@ -133,5 +145,9 @@ export class ChatComponent {
     document.execCommand('copy');
     this._notificationsService.success('Copied to clipboard', 'Paste the link anywhere');
     document.body.removeChild(textArea);
+  }
+
+  ngOnDestroy() {
+    this.botSubscription.unsubscribe();
   }
 }

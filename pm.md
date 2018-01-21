@@ -3,23 +3,25 @@
 ### Open
 
 * Get rid of unused select-bot component
-* Pick some default FAQ to display in dropdown on 0 letters in autocomplete
+* Pick some default FAQ to display in dropdown on 0 letters in autocomplete?
 * Ask sources for a public API with the answers so that we don't need to jsonify
 * Update readme
-* Bot drawings for backgrounds
 * Implement stats (hits for each answer and each source)
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
 * Make app for iOS
 * Make app for Android
-* Deploy to server
 * Implement "Not Found" page
+* Import Google analytics
+* Deploy to server
+* Bot drawings for backgrounds
 * Change python scripts to scrapers when needed
+  * Make sure all the answers are correct
 
 ### In Progress
 
-* Change editor settings, e.g. `trailing-commas: true`
+* Share on facebook and twitter and remove old share button.
 
 ### Done
 
@@ -73,3 +75,4 @@
 * About page
   * Remember to have the github repo link somewhere
 * Intro page
+* Change editor settings, e.g. `trailing-commas: true`

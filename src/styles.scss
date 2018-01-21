@@ -1,10 +1,14 @@
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~@ngx-share/button/styles/share-buttons';
+@import '~@ngx-share/button/styles/themes/default/default-theme';
+
 @font-face {
-  font-family: "Inconsolata";
-  src: url("/assets/Inconsolata/Inconsolata.otf") format("otf");
+  font-family: 'Inconsolata';
+  src: url('/assets/Inconsolata/Inconsolata.otf') format('otf');
 }
 @font-face {
-  font-family: "ubuntu";
-  src: url("/assets/ubuntu-mono/UbuntuMono-R.ttf") format("ttf");
+  font-family: 'ubuntu';
+  src: url('/assets/ubuntu-mono/UbuntuMono-R.ttf') format('ttf');
 }
 body,
 button {

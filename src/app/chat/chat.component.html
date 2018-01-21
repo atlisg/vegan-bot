@@ -29,10 +29,8 @@
       </div>
     </div>
   </div>
-  <div class="share-button-container" *ngIf=selectedAnswer>
-    <button class="share-button" (click)="share()" [@shareButtonState]="state">
-      SHARE ANSWER
-    </button>
+  <div class="share-button-container" *ngIf=selectedAnswer  [@shareButtonState]="state">
+    <share-button button="twitter" text="Tweet" showText="true" showCount="true"></share-button>
+    <share-button button="facebook" text="Share" showText="true" showCount="true"></share-button>
   </div>
-  <simple-notifications [options]="options"></simple-notifications>
 </div>
