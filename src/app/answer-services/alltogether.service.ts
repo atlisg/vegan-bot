@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Answer } from "../models/answer.interface";
-import { VeganSidekickService } from "./vegansidekick.service";
-import { VeganNutritionistaService } from "./vegannutritionista.service";
-import { VeganComService } from "./vegan.com.service";
-import { VeganEasyService } from "./veganeasy.service";
-import { AntsService } from "./ants.service";
-import { VivaService } from "./viva.service";
+import { Injectable } from '@angular/core';
+import { Answer } from '../models/answer.interface';
+import { VeganSidekickService } from './vegansidekick.service';
+import { VeganNutritionistaService } from './vegannutritionista.service';
+import { VeganComService } from './vegan.com.service';
+import { VeganEasyService } from './veganeasy.service';
+import { AntsService } from './ants.service';
+import { VivaService } from './viva.service';
 
 @Injectable()
 export class AllTogetherService {

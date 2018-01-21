@@ -37,10 +37,18 @@
     <span>{{item.value}}</span>
   </div>
 </div>
-<div [ngClass]="{'menu-open select-bot-open' : isSelectBotOpen}" class="menu-container select-bot-container">
-  <div class="menu-item bot-item" [ngClass]="{ 'selected' : isBotSelected(bot) }" *ngFor="let bot of bots" (click)="selectBot(bot)">
-    <div class="bot-title">{{bot.title}}</div>
-    <div class="bot-answer-count">{{bot.answerCount}} Answers</div>
+<div
+  [ngClass]="{'menu-open select-bot-open' : isSelectBotOpen}"
+  class="menu-container select-bot-container"
+>
+  <div
+    class="menu-item bot-item"
+    [ngClass]="{ 'selected' : isBotSelected(bot) }"
+    *ngFor="let bot of bots"
+    (click)="selectBot(bot)"
+  >
+      <div class="bot-title">{{bot.title}}</div>
+      <div class="bot-answer-count">{{bot.answerCount}} Answers</div>
   </div>
 </div>
 <div class="app-content">

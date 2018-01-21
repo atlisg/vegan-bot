@@ -1,5 +1,10 @@
 <div class="select-bot-page">
-  <div class="content bot-item" [ngClass]="{ 'selected' : isBotSelected(bot) }" *ngFor="let bot of bots" (click)="selectBot(bot)">
+  <div
+    class="content bot-item"
+    [ngClass]="{ 'selected' : isBotSelected(bot) }"
+    *ngFor="let bot of bots"
+    (click)="selectBot(bot)"
+  >
     <div class="bot-title">{{bot.title}}</div>
     <div>{{bot.answerCount}} Answers</div>
   </div>

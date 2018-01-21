@@ -7,7 +7,6 @@
   z-index: 1;
   text-align: center;
   font-size: 32px;
-
   .title-container {
     flex-grow: 2;
     display: flex;
@@ -26,7 +25,6 @@
       cursor: pointer;
     }
   }
-
   .bot-icon {
     float: left;
     i {
@@ -43,7 +41,6 @@
   .burger-icon {
     width: 30px;
   }
-
   .top-menu-content {
     padding: 14px 34px;
     display: flex;
@@ -61,17 +58,14 @@
   border-top: 1px solid #999;
   opacity: 0.9;
   max-width: 414px;
-
   .menu-item {
     font-size: 24px;
     color: white;
     padding: 25px;
     border-bottom: 1px solid #999;
-
     &:hover {
       background-color: teal;
     }
-
     i {
       width: 30px;
       text-align: center;
@@ -81,10 +75,8 @@
 
 .select-bot-container {
   left: -100%;
-
   .bot-item {
     cursor: pointer;
-
     .bot-title {
       font-size: 20px;
     }
@@ -92,7 +84,6 @@
       font-size: 13px;
     }
   }
-
   .selected {
     background-color: orange;
   }

@@ -8,7 +8,6 @@
 * Update readme
 * Bot drawings for backgrounds
 * Implement stats (hits for each answer and each source)
-* Change editor settings, e.g. `trailing-commas: true`
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
@@ -20,9 +19,7 @@
 
 ### In Progress
 
-* About page
-  * Remember to have the github repo link somewhere
-* Intro page
+* Change editor settings, e.g. `trailing-commas: true`
 
 ### Done
 
@@ -73,3 +70,6 @@
 * Click outside select bot should close it
 * Share button bug that Ægir found
 * Make clickable areas bigger for select-bot, about, help, etc.
+* About page
+  * Remember to have the github repo link somewhere
+* Intro page

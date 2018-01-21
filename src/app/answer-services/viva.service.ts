@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Answer } from "../models/answer.interface";
-import * as vivaAnswers from "../../../bot-sources/viva-answers.json";
+import { Injectable } from '@angular/core';
+import { Answer } from '../models/answer.interface';
+import * as vivaAnswers from '../../../bot-sources/viva-answers.json';
 
 @Injectable()
 export class VivaService {

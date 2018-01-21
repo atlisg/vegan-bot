@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Answer } from "../models/answer.interface";
-import * as veganeasyAnswers from "../../../bot-sources/veganeasy-answers.json";
+import { Injectable } from '@angular/core';
+import { Answer } from '../models/answer.interface';
+import * as veganeasyAnswers from '../../../bot-sources/veganeasy-answers.json';
 
 @Injectable()
 export class VeganEasyService {

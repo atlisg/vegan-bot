@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Answer } from "../models/answer.interface";
-import * as antsAnswers from "../../../bot-sources/ants-answers.json";
+import { Injectable } from '@angular/core';
+import { Answer } from '../models/answer.interface';
+import * as antsAnswers from '../../../bot-sources/ants-answers.json';
 
 @Injectable()
 export class AntsService {
