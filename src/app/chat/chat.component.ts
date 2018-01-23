@@ -15,24 +15,7 @@ import { VivaService } from '../answer-services/viva.service';
 import { Bot } from '../models/bot.interface';
 import { Answer } from '../models/answer.interface';
 import { SelectBotService } from '../select-bot/select-bot.service';
-
-const triggerOptions = delay => {
-  return [
-    state(
-      'inactive',
-      style({
-        opacity: 0,
-      })
-    ),
-    state(
-      'active',
-      style({
-        opacity: 1,
-      })
-    ),
-    transition('inactive => active', animate(`500ms ${delay}ms ease-in`)),
-  ];
-};
+import { triggerOptions } from './trigger.options';
 
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {

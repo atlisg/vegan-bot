@@ -13,15 +13,21 @@
 * Make app for iOS
 * Make app for Android
 * Implement "Not Found" page
+* Make dark theme button
 * Import Google analytics
-* Deploy to server
 * Bot drawings for backgrounds
-* Change python scripts to scrapers when needed
-  * Make sure all the answers are correct
+* Change python scripts to scrapers
+  * Vegan Sidekick for links to other questions
+  * But you kill ants for the formatting
+  * Vegan Nutritionista for the links
+  * VeganEasy for the links
+  * Vegan.com for the links
+  * Viva for the links
 
 ### In Progress
 
-* Share on facebook and twitter and remove old share button.
+* Deploy to server
+  * Pick cloud service: Google Cloud?
 
 ### Done
 
@@ -76,3 +82,4 @@
   * Remember to have the github repo link somewhere
 * Intro page
 * Change editor settings, e.g. `trailing-commas: true`
+* Share on facebook and twitter and remove old share button
