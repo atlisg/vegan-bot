@@ -8,7 +8,7 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { ChatComponent } from './chat/chat.component';
+import { ChatComponent, SafeHtmlPipe } from './chat/chat.component';
 import { SelectBotComponent } from './select-bot/select-bot.component';
 import { AboutComponent } from './about/about.component';
 
@@ -24,7 +24,14 @@ import { VivaService } from './answer-services/viva.service';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, IntroComponent, ChatComponent, SelectBotComponent, AboutComponent],
+  declarations: [
+    AppComponent,
+    IntroComponent,
+    ChatComponent,
+    SelectBotComponent,
+    AboutComponent,
+    SafeHtmlPipe,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
