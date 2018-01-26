@@ -14,7 +14,6 @@
 * Make app for Android
 * Implement "Not Found" page
 * Make dark theme button
-* Import Google analytics
 * Bot drawings for backgrounds
 * Change python scripts to scrapers
   * Vegan Sidekick for links to other questions
@@ -23,11 +22,16 @@
   * VeganEasy for the links
   * Vegan.com for the links
   * Viva for the links
+* Improve for devices
+  * iPhone
+  * Samsung
+  * iPad
+* Add favicon
+* Address console warning "Angular is running in the development mode. Call enableProdMode() to enable the production mode."
 
 ### In Progress
 
-* Deploy to server
-  * Pick cloud service: Google Cloud?
+* Setup Google analytics
 
 ### Done
 
@@ -83,3 +87,4 @@
 * Intro page
 * Change editor settings, e.g. `trailing-commas: true`
 * Share on facebook and twitter and remove old share button
+* Deploy to server
