@@ -15,6 +15,8 @@
 * Implement "Not Found" page
 * Make dark theme button
 * Bot drawings for backgrounds
+  * Meditating bot
+  * The answers to everything
 * Change python scripts to scrapers
   * Vegan Sidekick for links to other questions
   * But you kill ants for the formatting
@@ -28,10 +30,16 @@
   * iPad
 * Add favicon
 * Address console warning "Angular is running in the development mode. Call enableProdMode() to enable the production mode."
+* Make sources clickable in answers, linking to their homepage
+* Change placeholder to "Hint: Use keywords"
+* Call API on every page change to track stats for each answer
+* Order results in autocomplete
 
 ### In Progress
 
 * Setup Google analytics
+  * Track each url in the app
+  * Should be in analytics if all paths are recorded http://veganbot.com/chat/all-sources/vsid-31
 
 ### Done
 
