@@ -38,8 +38,11 @@
 ### In Progress
 
 * Setup Google analytics
-  * Track each url in the app
-  * Should be in analytics if all paths are recorded http://veganbot.com/chat/all-sources/vsid-31
+  * Track each path in the app
+  * Should be in analytics if all paths are recorded
+    * http://veganbot.com/chat/all-sources/vsid-31
+    * http://veganbot.com/chat/all-sources/viva-13
+    * http://veganbot.com/chat/all-sources/byka-77
 
 ### Done
 
