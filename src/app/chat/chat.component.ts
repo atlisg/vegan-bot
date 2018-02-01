@@ -19,7 +19,7 @@ import { triggerOptions } from './trigger.options';
 
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {
-  constructor(private sanitized: DomSanitizer) {}
+  constructor(private sanitized: DomSanitizer) { }
   transform(value) {
     console.log(this.sanitized.bypassSecurityTrustHtml(value));
     return this.sanitized.bypassSecurityTrustHtml(value);
@@ -61,7 +61,13 @@ export class ChatComponent implements OnInit {
     private router: Router,
     private _notificationsService: NotificationsService
   ) {
-    this.placeholders = ['Lets talk', 'Chat with me', 'Fire away', "What's up?"];
+    const hint = '(hint: use keywords)';
+    this.placeholders = [
+      `Let's talk. ${hint}`,
+      `Chat with me. ${hint}`,
+      `Fire away. ${hint}`,
+      `What's up? ${hint}`,
+    ];
     this.nextPlace = 0;
     const url = this.router.url.split('/');
     const botIndex = url[2];
@@ -106,7 +112,7 @@ export class ChatComponent implements OnInit {
   formatList(answer) {
     return `<div class="answer-key">${answer.key}</div><div class="answer-source">source: ${
       answer.source
-    }</div>`;
+      }</div>`;
   }
 
   onSelect(event) {

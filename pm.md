@@ -29,20 +29,16 @@
   * Samsung
   * iPad
 * Add favicon
-* Address console warning "Angular is running in the development mode. Call enableProdMode() to enable the production mode."
+* Address console warnings
+  - Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+  - DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
 * Make sources clickable in answers, linking to their homepage
-* Change placeholder to "Hint: Use keywords"
 * Call API on every page change to track stats for each answer
 * Order results in autocomplete
 
 ### In Progress
 
-* Setup Google analytics
-  * Track each path in the app
-  * Should be in analytics if all paths are recorded
-    * http://veganbot.com/chat/all-sources/vsid-31
-    * http://veganbot.com/chat/all-sources/viva-13
-    * http://veganbot.com/chat/all-sources/byka-77
+* Add hint to placeholders "... (hint: use keywords)"
 
 ### Done
 
@@ -99,3 +95,5 @@
 * Change editor settings, e.g. `trailing-commas: true`
 * Share on facebook and twitter and remove old share button
 * Deploy to server
+* Setup Google analytics
+  * Track each path in the app
