@@ -30,15 +30,19 @@
   * iPad
 * Add favicon
 * Address console warnings
-  - Angular is running in the development mode. Call enableProdMode() to enable the production mode.
-  - DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
+  * Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+  * DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
 * Make sources clickable in answers, linking to their homepage
-* Call API on every page change to track stats for each answer
-* Order results in autocomplete
+* API
+  * Call API on every page change to track stats for each answer
+  * Start using Node.js API and MongoDB to store and give answers
+* Improve searchbox
+  * Order results in autocomplete
+  * Make possible to enter in chat input without selecting from dropdown
+  * Record all inputs in search field
+* Implement Contact page
 
 ### In Progress
-
-* Add hint to placeholders "... (hint: use keywords)"
 
 ### Done
 
@@ -97,3 +101,5 @@
 * Deploy to server
 * Setup Google analytics
   * Track each path in the app
+* Add hint to placeholders "... (hint: use keywords)"
+* Change email on intro page to atlisaevar@gmail.com for now
