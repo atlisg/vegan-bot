@@ -13,6 +13,6 @@ export class IntroComponent implements OnInit {
   ngOnInit() {}
 
   startChatting() {
-    this.router.navigate(['/chat', this.selectBotService.getCurrentBot().index]);
+    this.router.navigate(['/chat']);
   }
 }

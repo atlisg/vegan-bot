@@ -12,9 +12,7 @@ export class AboutComponent implements OnInit {
 
   constructor(private selectBotService: SelectBotService) {
     this.selectBotService.bots.forEach(bot => {
-      if (bot.index !== 'all-sources') {
-        this.bots.push(bot);
-      }
+      this.bots.push(bot);
     });
   }
 

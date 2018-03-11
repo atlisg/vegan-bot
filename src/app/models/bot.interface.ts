@@ -1,7 +1,6 @@
 export interface Bot {
   title: string;
-  index: string;
+  id: string;
   answerCount: number;
-  serviceName: string;
   homepage: string;
 }

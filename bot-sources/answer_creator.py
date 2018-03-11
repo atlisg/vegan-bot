@@ -1,7 +1,8 @@
 import os
 import json
-# import pprint
-# pp = pprint.PrettyPrinter(indent=4)
+import requests
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 # Globals
 cwd = os.getcwd() + '/bot-sources/'
@@ -56,8 +57,11 @@ def isTitle(line):
 def addAntsKey(answers, source, line, start):
   answers.append({
     'key': line[start:],
-    'source': source['title'],
-    'index': source['index_prefix'] + line[:start-2],
+    'source': {
+      'name': source['title'],
+      'id': source['id'],
+    },
+    'id': source['id'] + '-' + line[:start-2],
     'answer': [],
   })
 
@@ -152,8 +156,11 @@ def getKeys(lines, source):
         one = 0
       answers.append({
         'key': line[start+1:].strip(),
-        'source': source['title'],
-        'index': source['index_prefix'] + line[:start-one],
+        'source': {
+          'name': source['title'],
+          'id': source['id'],
+        },
+        'id': source['id'] + '-' + line[:start-one],
         'answer': []
       })
   return answers
@@ -180,43 +187,53 @@ def writeJSON(source, answers):
   print 'Writing ' + str(len(answers)) + ' answers to file: ' + path.split('/')[-1]
   answersfile.write(json.dumps(answers))
 
+def writeToDB(answers):
+  for answer in answers:
+    pp.pprint(answer)
+    headers = { 'Content-Type': 'application/json' }
+    answer_json = json.dumps(answer)
+    r = requests.post('http://localhost:3000/api/answers', data=answer_json, headers=headers)
+    print str(r.status_code) + ' for ' + answer['id']
+
 def convert(file, source):
   lines = split_file(file)
   answers = getKeys(lines, source)
   if source['filename'] == 'vegansidekick':
     lines = lines[69:]
   addAnswers(source, lines, answers)
-  writeJSON(source, answers)
+  #writeJSON(source, answers)
+  writeToDB(answers)
+  print str(len(answers)) + ' answers were successfully created in the database for ' + source['title']
 
-def jsonify(sources):
+def createAnswers(sources):
   for source in sources:
     file = open(cwd + source['filename'] + '.txt', 'r')
     convert(file, source)
-  print str(len(sources)) + ' txt files were successfully jsonified!'
+  print str(len(sources)) + ' sources were successfully added to the database!'
 
-jsonify([{
+createAnswers([{
     'title': 'But you kill ants',
     'filename': 'ants',
-    'index_prefix': 'byka-',
+    'id': 'byka',
   }, {
     'title': 'Vegan.com',
     'filename': 'vegancom',
-    'index_prefix': 'vcom-',
+    'id': 'vcom',
   }, {
     'title': 'Vegan Easy',
     'filename': 'veganeasy',
-    'index_prefix': 'veas-',
+    'id': 'veas',
   }, {
     'title': 'Vegan Nutritionista',
     'filename': 'vegannutritionista',
-    'index_prefix': 'vnut-',
+    'id': 'vnut',
   }, {
     'title': 'Vegan Sidekick',
     'filename': 'vegansidekick',
-    'index_prefix': 'vsid-'
+    'id': 'vsid'
   }, {
     'title': 'Viva',
     'filename': 'viva',
-    'index_prefix': 'viva-',
+    'id': 'viva',
   }
 ])

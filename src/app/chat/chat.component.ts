@@ -5,13 +5,7 @@ import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { HttpModule } from '@angular/http';
 import { Subscription } from 'rxjs/Rx';
-import { VeganSidekickService } from '../answer-services/vegansidekick.service';
-import { VeganNutritionistaService } from '../answer-services/vegannutritionista.service';
-import { VeganComService } from '../answer-services/vegan.com.service';
-import { VeganEasyService } from '../answer-services/veganeasy.service';
-import { AntsService } from '../answer-services/ants.service';
-import { AllTogetherService } from '../answer-services/alltogether.service';
-import { VivaService } from '../answer-services/viva.service';
+import { AnswerService } from '../answer-services/answer.service';
 import { Bot } from '../models/bot.interface';
 import { Answer } from '../models/answer.interface';
 import { SelectBotService } from '../select-bot/select-bot.service';
@@ -19,7 +13,7 @@ import { triggerOptions } from './trigger.options';
 
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {
-  constructor(private sanitized: DomSanitizer) { }
+  constructor(private sanitized: DomSanitizer) {}
   transform(value) {
     console.log(this.sanitized.bypassSecurityTrustHtml(value));
     return this.sanitized.bypassSecurityTrustHtml(value);
@@ -42,26 +36,17 @@ export class ChatComponent implements OnInit {
   private botSubscription: Subscription;
   selectedBot: Bot;
   selectedAnswer: Answer;
-  answers: Array<Answer>;
   state: string = 'inactive';
   placeholders: Array<string>;
   nextPlace: number;
-  options: any;
 
   constructor(
-    private elementRef: ElementRef,
     private selectBotService: SelectBotService,
-    private veganSidekickService: VeganSidekickService,
-    private veganNutritionistaService: VeganNutritionistaService,
-    private veganComService: VeganComService,
-    private veganEasyService: VeganEasyService,
-    private antsService: AntsService,
-    private allTogetherService: AllTogetherService,
-    private vivaService: VivaService,
-    private router: Router,
-    private _notificationsService: NotificationsService
+    private answerService: AnswerService,
+    private router: Router
   ) {
     const hint = '(hint: use keywords)';
+    // TODO: refactor and show hint with less opacity or smaller font or something.
     this.placeholders = [
       `Let's talk. ${hint}`,
       `Chat with me. ${hint}`,
@@ -69,40 +54,30 @@ export class ChatComponent implements OnInit {
       `What's up? ${hint}`,
     ];
     this.nextPlace = 0;
-    const url = this.router.url.split('/');
-    const botIndex = url[2];
-    this.selectedBot = this.selectBotService.getBot(botIndex);
-    if (!this.selectedBot) {
-      this.router.navigate(['/intro']);
-      return;
-    }
-    if (this.selectedBot !== this.selectBotService.getCurrentBot()) {
-      this.selectBotService.botChanged(this.selectedBot);
-    }
-    this.answers = this[this.selectedBot.serviceName]
-      ? this[this.selectedBot.serviceName].answers
-      : [];
-    if (url.length > 3) {
-      const answerIndex = url[3];
-      this.selectedAnswer = this.answers.find(value => value.index === answerIndex);
-      if (!this.selectedAnswer) {
-        this.router.navigate(['/intro']);
-        return;
-      }
-    }
-    this.options = {
-      timeOut: 5000,
-      maxStack: 1,
-    };
   }
 
   ngOnInit() {
     this.botSubscription = this.selectBotService.bot.subscribe(b => {
       this.selectedBot = b;
-      this.answers = this[this.selectedBot.serviceName]
-        ? this[this.selectedBot.serviceName].answers
-        : [];
     });
+
+    const url = this.router.url.split('/');
+    if (url.length > 2) {
+      const answerId = url[2];
+      this.getAnswerById(answerId);
+    }
+  }
+
+  getAnswerById(id) {
+    this.answerService.getAnswerById(id).subscribe(answer => {
+      this.selectedAnswer = answer;
+      this.triggerNewAnswerDisplay();
+      this.answerService.updateAnswerById(id, true, false).subscribe(updated => {});
+    });
+  }
+
+  getAnswers(keyword) {
+    return this.answerService.getAnswers(this.selectedBot.id, keyword);
   }
 
   formatAnswer(answer) {
@@ -111,29 +86,31 @@ export class ChatComponent implements OnInit {
 
   formatList(answer) {
     return `<div class="answer-key">${answer.key}</div><div class="answer-source">source: ${
-      answer.source
-      }</div>`;
+      answer.source.name
+    }</div>`;
   }
 
-  onSelect(event) {
-    this.nextPlace++;
-    this.nextPlace %= 4;
+  triggerNewAnswerDisplay() {
     this.state = 'inactive';
     setTimeout(() => {
       this.state = 'active';
     }, 100);
-    this.router.navigate(['/chat', this.selectedBot.index, event.index]);
+  }
+
+  onSelect(event) {
+    if (event.id) {
+      this.nextPlace++;
+      this.nextPlace %= 4;
+      this.triggerNewAnswerDisplay();
+      this.answerService.updateAnswerById(event.id, true, false).subscribe(updated => {});
+      this.router.navigate(['/chat', event.id]);
+    }
   }
 
   share() {
-    const url = 'http://www.veganbot.com' + this.router.url;
-    let textArea = document.createElement('textarea');
-    textArea.value = url;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    this._notificationsService.success('Copied to clipboard', 'Paste the link anywhere');
-    document.body.removeChild(textArea);
+    this.answerService
+      .updateAnswerById(this.selectedAnswer.id, false, true)
+      .subscribe(updated => {});
   }
 
   ngOnDestroy() {

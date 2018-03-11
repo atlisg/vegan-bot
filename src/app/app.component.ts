@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   goToMain() {
     this.isOpen = false;
-    this.router.navigate(['/chat', this.selectedBot.index]);
+    this.router.navigate(['/chat']);
   }
 
   selectItem(item) {
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.toggleBotMenu();
     this.selectedBot = bot;
     this.selectBotService.botChanged(bot);
-    this.router.navigate(['/chat', this.selectedBot.index]);
+    this.router.navigate(['/chat']);
   }
 
   isMobile() {
@@ -82,7 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   isBotSelected(bot) {
-    return bot.index === this.selectedBot.index;
+    return bot.id === this.selectedBot.id;
   }
 
   ngOnDestroy() {

@@ -33,16 +33,23 @@
   * Angular is running in the development mode. Call enableProdMode() to enable the production mode.
   * DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
 * Make sources clickable in answers, linking to their homepage
-* API
-  * Call API on every page change to track stats for each answer
-  * Start using Node.js API and MongoDB to store and give answers
 * Improve searchbox
   * Order results in autocomplete
   * Make possible to enter in chat input without selecting from dropdown
   * Record all inputs in search field
 * Implement Contact page
+* Refactor and show hint with less opacity or smaller font or something.
+* Use AND operator if multiple words, but OR if no results are found with AND
 
 ### In Progress
+
+* API
+  * Start using Node.js API and MongoDB to store and give answers
+    * Make API searchable by parts of words, e.g. "pro" should return answers including "protein".
+    * Refactor angular app to use the new API
+  * Call API on every page change to track stats for each answer
+    * Let API know that an answer was selected.
+    * Let API know that an answer was shared.
 
 ### Done
 

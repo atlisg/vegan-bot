@@ -5,7 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 // Get our API routes
-/* const api = require('./server/routes/api'); */
+const api = require('./server/routes/api');
 
 const app = express();
 
@@ -16,8 +16,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// Add headers
+app.use(function(req, res, next) {
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // Pass to next layer of middleware
+  next();
+});
+
 // Set our api routes
-/* app.use('/api', api); */
+app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
