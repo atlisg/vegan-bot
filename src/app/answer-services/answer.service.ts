@@ -4,8 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Answer } from '../models/answer.interface';
 
-const BASE_URL = 'http://localhost:80/api/';
-/* const BASE_URL = 'http://veganbot.com/api/'; */
+/* const BASE_URL = 'http://localhost:3000/api/'; */
+const BASE_URL = 'http://veganbot.com/api/';
 
 @Injectable()
 export class AnswerService {

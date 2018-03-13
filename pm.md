@@ -40,16 +40,11 @@
 * Implement Contact page
 * Refactor and show hint with less opacity or smaller font or something.
 * Use AND operator if multiple words, but OR if no results are found with AND
+* Implement stats viewer
 
 ### In Progress
 
-* API
-  * Start using Node.js API and MongoDB to store and give answers
-    * Make API searchable by parts of words, e.g. "pro" should return answers including "protein".
-    * Refactor angular app to use the new API
-  * Call API on every page change to track stats for each answer
-    * Let API know that an answer was selected.
-    * Let API know that an answer was shared.
+* Fix Live Server
 
 ### Done
 
@@ -110,3 +105,10 @@
   * Track each path in the app
 * Add hint to placeholders "... (hint: use keywords)"
 * Change email on intro page to atlisaevar@gmail.com for now
+* API
+  * Start using Node.js API and MongoDB to store and give answers
+    * Make API searchable by parts of words, e.g. "pro" should return answers including "protein".
+    * Refactor angular app to use the new API
+  * Call API on every page change to track stats for each answer
+    * Let API know that an answer was selected.
+    * Let API know that an answer was shared.
