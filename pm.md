@@ -2,11 +2,9 @@
 
 ### Open
 
-* Get rid of unused select-bot component
 * Pick some default FAQ to display in dropdown on 0 letters in autocomplete?
 * Ask sources for a public API with the answers so that we don't need to jsonify
 * Update readme
-* Implement stats (hits for each answer and each source)
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
@@ -40,11 +38,12 @@
 * Implement Contact page
 * Refactor and show hint with less opacity or smaller font or something.
 * Use AND operator if multiple words, but OR if no results are found with AND
-* Implement stats viewer
+* Loading bar for autocomplete box
+* Make facebook shares look better
 
 ### In Progress
 
-* Fix Live Server
+* Implement stats query param
 
 ### Done
 
@@ -112,3 +111,6 @@
   * Call API on every page change to track stats for each answer
     * Let API know that an answer was selected.
     * Let API know that an answer was shared.
+* Fix Live Server
+* Get rid of unused select-bot component
+* Implement stats (hits for each answer and each source)

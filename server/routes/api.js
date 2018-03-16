@@ -7,6 +7,27 @@ mongoose.connect(
 
 const Answer = require('../models/answer');
 
+const sortAnswers = (answers, orderBy, printStats) => {
+  if (orderBy === 'hits') {
+    answers = answers.sort((a, b) => b.stats.hits.length - a.stats.hits.length);
+  }
+  if (orderBy === 'shares') {
+    answers = answers.sort((a, b) => b.stats.shares.length - a.stats.shares.length);
+  }
+
+  if (printStats === 'true') {
+    answers.map(answer => {
+      if (answer.stats.hits.length > 0 || answer.stats.shares.length > 0) {
+        console.log(
+          `${answer.id} - Hits: ${answer.stats.hits.length} Shares: ${answer.stats.shares.length}`
+        );
+      }
+    });
+  }
+
+  return answers;
+};
+
 /**
  * GET api listing.
  */
@@ -19,6 +40,8 @@ router.get('/', (req, res) => {
  * Optional query params:
  * - sourceId: string (filter certain source)
  * - text: string (search term)
+ * - orderBy: string (hits or shares)
+ * - printStats: boolean
  */
 router.get('/answers', (req, res) => {
   console.log('GET /answers');
@@ -30,7 +53,7 @@ router.get('/answers', (req, res) => {
     query['$text'] = { $search: req.query.text };
   }
 
-  Answer.find(query, function(err, answers) {
+  Answer.find(query, (err, answers) => {
     if (err) throw err;
 
     // If text search returns zero results, we do a wildcard search.
@@ -43,11 +66,15 @@ router.get('/answers', (req, res) => {
 
         console.log(answers.length + ' answers were fetched with query:');
         console.log(query);
+        if (req.query.orderBy)
+          answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
         res.status(200).send(answers);
       });
     } else {
       console.log(answers.length + ' answers were fetched with query:');
       console.log(query);
+      if (req.query.orderBy)
+        answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
       res.status(200).send(answers);
     }
   });
