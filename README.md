@@ -1,5 +1,12 @@
 # VeganBot
 
+A bot with all the answers to frequently asked questions and arguments about veganism
+
+## Requirements
+
+* Recent Node and NPM
+* Angular-cli
+
 ## Dependencies
 
 `npm install`
@@ -7,6 +14,17 @@
 ## Run
 
 `ng serve`
+
+## Build
+
+On the droplet, run
+`ng build --prod`
+Then, start the server in the background with
+`PORT=80 nohup node server.js &`
+To stop the server run
+`kill $(pgrep node)`
+If IP address needs to be added to mongoDB, you can show the IP address of the droplet with
+`ip addr show`
 
 ## Angular-CLI
 
