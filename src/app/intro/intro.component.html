@@ -9,8 +9,8 @@
     navigate to the About page.
   </div>
   <div class="paragraph">
-    If you don't find an answer for your query, or for any feedback at all, please contact me at
-    <a href="mailto:atlisaevar@gmail.com?Subject=VeganBot" target="_top">atlisaevar@gmail.com</a>.
+    If you don't find an answer for your query, or you have any feedback at all, please contact me at
+    <a class="contact-email" [ngClass]="{'dark-theme': isDark}" href="mailto:atlisaevar@gmail.com?Subject=VeganBot" target="_top">atlisaevar@gmail.com</a>.
   </div>
   <div class="begin-button">
     <button (click)="startChatting()">BEGIN</button>

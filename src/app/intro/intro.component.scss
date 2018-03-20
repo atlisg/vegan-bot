@@ -4,7 +4,7 @@
   text-align: center;
 }
 .begin-button button {
-  background-color: teal;
+  background-color: #009a22;
   font-size: 32px;
   color: white;
   width: 100%;
@@ -17,8 +17,16 @@
 .welcome-title {
   font-size: 30px;
   margin: 20px 0;
-  color: orangered;
+  color: #ff7a00;
 }
 .paragraph {
   margin-bottom: 20px;
+  line-height: 1.4;
+}
+.contact-email {
+  color: teal;
+  text-decoration: none;
+}
+.dark-theme {
+  color: aqua;
 }

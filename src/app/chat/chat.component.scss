@@ -4,10 +4,6 @@
 .answer * {
   line-height: 1.4;
 }
-.answer-source {
-  font-style: italic;
-  color: #666;
-}
 .link-in-answer {
   word-break: break-all;
   font-size: 13px;
@@ -19,10 +15,19 @@
   border: 1px solid #999;
   font-size: 20px;
   font-family: inherit;
+  background: #222;
+  color: #00ff2b;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #009a22;
+    font-size: 16px;
+  }
 }
 .your-input-header {
   margin-top: 30px;
-  color: orangered;
+  color: #ff7a00;
 }
 .bot-answer-header {
   color: teal;

@@ -23,9 +23,11 @@
     </span>
     <span class="big-menu-bar">
       <span class="big-menu-bar-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
-        <span>{{item.value}}</span>
+        <span *ngIf="item.route">{{item.value}}</span>
         <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
         <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
+        <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>
+        <i *ngIf="item.value === 'Brighten'" class="fa fa-sun-o" aria-hidden="true"></i>
       </span>
     </span>
   </div>
@@ -34,6 +36,8 @@
   <div class="menu-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
     <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
     <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Brighten'" class="fa fa-sun-o" aria-hidden="true"></i>
     <span>{{item.value}}</span>
   </div>
 </div>
@@ -51,6 +55,6 @@
       <div class="bot-answer-count">{{bot.answerCount}} Answers</div>
   </div>
 </div>
-<div class="app-content">
+<div class="app-content" [ngClass]="{'dark-theme' : isDark}">
   <router-outlet></router-outlet>
 </div>

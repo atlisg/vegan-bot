@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 
 import { SelectBotService } from './select-bot/select-bot.service';
 import { AnswerService } from './answer-services/answer.service';
+import { ThemeService } from './theme/theme.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     ShareButtonsModule.forRoot(),
   ],
-  providers: [SelectBotService, AnswerService],
+  providers: [SelectBotService, AnswerService, ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

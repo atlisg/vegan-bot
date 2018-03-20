@@ -4,13 +4,22 @@
 .welcome-title {
   font-size: 30px;
   margin: 20px 0;
-  color: orangered;
+  color: #ff7a00;
 }
 .subsection-title {
   font-size: 24px;
   margin: 20px 0;
-  color: teal;
+  color: #ff7a00;
 }
 .paragraph {
   margin-bottom: 20px;
+  line-height: 1.4;
+}
+.source-link,
+.github-link {
+  color: teal;
+  text-decoration: none;
+}
+.dark-theme {
+  color: aqua;
 }

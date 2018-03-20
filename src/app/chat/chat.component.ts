@@ -9,6 +9,7 @@ import { AnswerService } from '../answer-services/answer.service';
 import { Bot } from '../models/bot.interface';
 import { Answer } from '../models/answer.interface';
 import { SelectBotService } from '../select-bot/select-bot.service';
+import { ThemeService } from '../theme/theme.service';
 import { triggerOptions } from './trigger.options';
 
 @Pipe({ name: 'safeHtml' })
@@ -34,6 +35,8 @@ export class SafeHtmlPipe implements PipeTransform {
 })
 export class ChatComponent implements OnInit {
   private botSubscription: Subscription;
+  private isDarkSubscription: Subscription;
+  isDark: boolean;
   selectedBot: Bot;
   selectedAnswer: Answer;
   state: string = 'inactive';
@@ -43,22 +46,16 @@ export class ChatComponent implements OnInit {
   constructor(
     private selectBotService: SelectBotService,
     private answerService: AnswerService,
-    private router: Router
-  ) {
-    const hint = '(hint: use keywords)';
-    // TODO: refactor and show hint with less opacity or smaller font or something.
-    this.placeholders = [
-      `Let's talk. ${hint}`,
-      `Chat with me. ${hint}`,
-      `Fire away. ${hint}`,
-      `What's up? ${hint}`,
-    ];
-    this.nextPlace = 0;
-  }
+    private router: Router,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.botSubscription = this.selectBotService.bot.subscribe(b => {
       this.selectedBot = b;
+    });
+    this.isDarkSubscription = this.themeService.isDark.subscribe(d => {
+      this.isDark = d;
     });
 
     const url = this.router.url.split('/');
@@ -66,6 +63,14 @@ export class ChatComponent implements OnInit {
       const answerId = url[2];
       this.getAnswerById(answerId);
     }
+    const hint = '(hint: use keywords)';
+    this.placeholders = [
+      `Give me input. ${hint}`,
+      `Enter characters. ${hint}`,
+      `Feed me. ${hint}`,
+      `I eat your words. ${hint}`,
+    ];
+    this.nextPlace = Math.floor(Math.random() * 4);
   }
 
   getAnswerById(id) {
@@ -85,7 +90,9 @@ export class ChatComponent implements OnInit {
   }
 
   formatList(answer) {
-    return `<div class="answer-key">${answer.key}</div><div class="answer-source">source: ${
+    return `<div class="answer-key">${
+      answer.key
+    }</div><div class="answer-source" [ngClass]="{'dark-theme': isDark}">source: ${
       answer.source.name
     }</div>`;
   }
@@ -102,7 +109,9 @@ export class ChatComponent implements OnInit {
       this.nextPlace++;
       this.nextPlace %= 4;
       this.triggerNewAnswerDisplay();
-      this.answerService.updateAnswerById(event.id, true, false).subscribe(updated => {});
+      if (this.router.url.split('/').length > 2) {
+        this.answerService.updateAnswerById(event.id, true, false).subscribe(updated => {});
+      }
       this.router.navigate(['/chat', event.id]);
     }
   }

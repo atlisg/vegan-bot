@@ -10,9 +10,15 @@
   font-family: 'ubuntu';
   src: url('/assets/ubuntu-mono/UbuntuMono-R.ttf') format('ttf');
 }
+@font-face {
+  font-family: Matrix;
+  src: url('/assets/white-rabbit/whitrabt.woff2') format('woff2'),
+    url('/assets/white-rabbit/whitrabt.woff') format('woff');
+}
+
 body,
 button {
-  font-family: Inconsolata, Courier, monospace;
+  font-family: Matrix, Courier, monospace;
 }
 body {
   margin: 0 auto;
@@ -21,17 +27,45 @@ body {
   padding: 24px;
 }
 .ng2-auto-complete {
-  border: 2px solid #999;
-
+  /* border: 2px solid #111; */
+  .ng-star-inserted {
+    border-color: #999;
+  }
   .item {
-    background-color: #eee;
+    background-color: #ddd;
     padding: 10px;
+    border-color: #999;
+    line-height: 1.2;
+    .dark-theme & {
+      background-color: #333;
+      color: #ddd;
+    }
+    &:hover,
+    &.selected {
+      background-color: teal;
+      color: #ddd;
+      .answer-source {
+        color: aqua;
+      }
+    }
+  }
+  .loading,
+  .no-match-found {
+    padding: 10px;
+    .dark-theme & {
+      background-color: #333;
+    }
   }
   ul {
     max-height: 70vh;
   }
   .answer-source {
     font-size: 12px;
+    margin-top: 5px;
+    color: teal;
+    .dark-theme & {
+      color: #ff7a00;
+    }
   }
 }
 .simple-notification-wrapper {

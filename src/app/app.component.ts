@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 import { SelectBotService } from './select-bot/select-bot.service';
+import { ThemeService } from './theme/theme.service';
 import { Bot } from './models/bot.interface';
 
 @Component({
@@ -15,16 +16,35 @@ import { Bot } from './models/bot.interface';
 })
 export class AppComponent implements OnInit, OnDestroy {
   private botSubscription: Subscription;
+  private isDarkSubscription: Subscription;
   isOpen: boolean = false;
   isSelectBotOpen: boolean = false;
   selectedBot: Bot;
   bots: Array<Bot>;
   menuItems: Array<Object>;
+  isDark: boolean;
 
-  constructor(private router: Router, private selectBotService: SelectBotService) {
+  constructor(
+    private router: Router,
+    private selectBotService: SelectBotService,
+    private themeService: ThemeService
+  ) {
     this.selectedBot = this.selectBotService.getCurrentBot();
     this.bots = this.selectBotService.bots;
-    this.menuItems = [{ route: '/about', value: 'About' }, { route: '/intro', value: 'Help' }];
+  }
+
+  ngOnInit() {
+    this.botSubscription = this.selectBotService.bot.subscribe(b => {
+      this.selectedBot = b;
+    });
+    this.isDarkSubscription = this.themeService.isDark.subscribe(d => {
+      this.isDark = d;
+    });
+    this.menuItems = [
+      { route: '/about', value: 'About' },
+      { route: '/intro', value: 'Help' },
+      { value: this.isDark ? 'Brighten' : 'Darken' },
+    ];
   }
 
   onClick(event) {
@@ -44,12 +64,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit() {
-    this.botSubscription = this.selectBotService.bot.subscribe(b => {
-      this.selectedBot = b;
-    });
-  }
-
   goToMain() {
     this.isOpen = false;
     this.router.navigate(['/chat']);
@@ -57,7 +71,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   selectItem(item) {
     this.toggleMenu();
-    this.router.navigate([item.route]);
+    if (item.route) {
+      this.router.navigate([item.route]);
+    } else {
+      this.toggleTheme();
+    }
+  }
+
+  toggleTheme() {
+    this.themeService.themeChanged(!this.isDark);
+    this.menuItems[2]['value'] = this.isDark ? 'Brighten' : 'Darken';
   }
 
   selectBot(bot) {

@@ -10,11 +10,12 @@
     match-formatted="false"
     [list-formatter]="formatList"
     [value-formatter]="formatAnswer"
+    loading-text="Loading..."
   />
   <div id="ans" class="answer" *ngIf=selectedAnswer>
     <h3 class="your-input-header" [@yourInputHeaderState]="state">You:</h3>
     <div class="your-input" [@yourInputState]="state">{{selectedAnswer.key}}</div>
-    <h3 class="bot-answer-header" [@botAnswerHeaderState]="state">{{selectedAnswer.source.name}}:</h3>
+    <h3 class="bot-answer-header" [ngClass]="{'dark-theme': isDark}" [@botAnswerHeaderState]="state">{{selectedAnswer.source.name}}:</h3>
     <div class="bot-answer" [@botAnswerState]="state">
       <div *ngFor="let paragraph of selectedAnswer.answer; let i = index" class="paragraph">
         <span *ngIf="paragraph && paragraph.substr(0,4) !== 'http'">{{paragraph}}</span>
