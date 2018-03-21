@@ -29,7 +29,6 @@
   * DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
 * Make sources clickable in answers, linking to their homepage
 * Improve searchbox
-  * Order results in autocomplete, default sort should be random
   * Make possible to enter in chat input without selecting from dropdown
   * Record all inputs in search field
 * Implement Contact page
@@ -41,6 +40,4 @@
 
 ### In Progress
 
-* Update readme
-* Don't show hint when there is no space for it.
-* Add favicon
+* Order results in autocomplete, default sort should be random

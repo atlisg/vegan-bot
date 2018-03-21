@@ -7,7 +7,14 @@ mongoose.connect(
 
 const Answer = require('../models/answer');
 
+/**
+ * Sort answers based on stats.
+ */
 const sortAnswers = (answers, orderBy, printStats) => {
+  // If no order is specified, we randomize the sorting.
+  if (!orderBy) {
+    answers = answers.sort((a, b) => (Math.random() < 0.5 ? -1 : 1));
+  }
   if (orderBy === 'hits') {
     answers = answers.sort((a, b) => b.stats.hits.length - a.stats.hits.length);
   }
@@ -66,15 +73,13 @@ router.get('/answers', (req, res) => {
 
         console.log(answers.length + ' answers were fetched with query:');
         console.log(query);
-        if (req.query.orderBy)
-          answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
+        answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
         res.status(200).send(answers);
       });
     } else {
       console.log(answers.length + ' answers were fetched with query:');
       console.log(query);
-      if (req.query.orderBy)
-        answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
+      answers = sortAnswers(answers, req.query.orderBy, req.query.printStats);
       res.status(200).send(answers);
     }
   });
