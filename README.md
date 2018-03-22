@@ -12,20 +12,17 @@ A bot with all the answers to frequently asked questions and arguments about veg
 
 `npm install`
 
-## Run
-
-Run client locally:
+## Run client
 
 `ng serve`
 
 Navigate to `http://localhost:4200/`
 
-Build client and run server
+## Build client and run server
 
-```
-ng build
-node server.js
-```
+`ng build`
+
+`node server.js`
 
 Optionally, use nodemon for automatic restart on changes
 
@@ -41,11 +38,11 @@ Then, start the server with Forever
 
 `PORT=80 forever start server.js`
 
-To stop the server run
+To stop the server, first find the id of the process
 
 `forever list`
 
-to find the id of the process, then run
+then run
 
 `forever stop <id>`
 
