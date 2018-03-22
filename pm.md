@@ -37,7 +37,10 @@
 * Make facebook shares look better
 * Upgrade font awesome
 * Obtain a license to be fully open source legit
+* Make it Googlable
+* Contact sources and ask permission to use their answers
+* Contact font maker and let him know I'm using his font
 
 ### In Progress
 
-* Order results in autocomplete, default sort should be random
+* Use Forever on droplet to run app
