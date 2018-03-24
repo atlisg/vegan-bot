@@ -19,6 +19,8 @@
 .github-link {
   color: teal;
   text-decoration: none;
+  position: relative;
+  z-index: 1;
 }
 .dark-theme {
   color: aqua;

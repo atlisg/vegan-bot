@@ -37,5 +37,4 @@
 
 ### In Progress
 
-* Bot drawings for backgrounds
 * Make facebook shares look better
