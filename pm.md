@@ -10,9 +10,6 @@
 * Make app for iOS
 * Make app for Android
 * Implement "Not Found" page
-* Bot drawings for backgrounds
-  * Meditating bot
-  * The answers to everything
 * Change python scripts to scrapers
   * Vegan Sidekick for links to other questions
   * But you kill ants for the formatting
@@ -24,9 +21,7 @@
   * iPhone
   * Samsung
   * iPad
-* Address console warnings
-  * Angular is running in the development mode. Call enableProdMode() to enable the production mode.
-  * DevTools failed to parse SourceMap: http://veganbot.com/autotrack.js.map
+* Address console errors and warnings
 * Make sources clickable in answers, linking to their homepage
 * Improve searchbox
   * Make possible to enter in chat input without selecting from dropdown
@@ -34,7 +29,6 @@
 * Implement Contact page
 * Use AND operator if multiple words, but OR if no results are found with AND
 * Loading bar for autocomplete box
-* Make facebook shares look better
 * Upgrade font awesome
 * Obtain a license to be fully open source legit
 * Make it Googlable
@@ -43,4 +37,5 @@
 
 ### In Progress
 
-* Use Forever on droplet to run app
+* Bot drawings for backgrounds
+* Make facebook shares look better

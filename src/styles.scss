@@ -68,10 +68,19 @@ body {
     }
   }
 }
-.simple-notification-wrapper {
-  right: 24px !important;
-  bottom: 14px !important;
-  width: calc(100% - 48px) !important;
-  max-width: 366px;
-  left: unset !important;
+
+.bot-drawing {
+  background: url('/assets/veganbot_all_answers2_teal.png');
+  background-size: 250px;
+  opacity: 0.5;
+  height: 301px;
+  width: 250px;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 0px;
+  right: 30px;
+  .dark-theme & {
+    background: url('/assets/veganbot_all_answers2.png');
+    background-size: 250px;
+  }
 }
