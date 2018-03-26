@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, Pipe, PipeTransform } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { HttpModule } from '@angular/http';
@@ -47,6 +47,7 @@ export class ChatComponent implements OnInit {
     private selectBotService: SelectBotService,
     private answerService: AnswerService,
     private router: Router,
+    private metaService: Meta,
     private themeService: ThemeService
   ) {}
 
@@ -79,6 +80,10 @@ export class ChatComponent implements OnInit {
       this.selectedAnswer = answer;
       this.triggerNewAnswerDisplay();
       this.answerService.updateAnswerById(id, true, false).subscribe(updated => {});
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: answer.key,
+      });
     });
   }
 
@@ -113,6 +118,10 @@ export class ChatComponent implements OnInit {
       if (this.router.url.split('/').length > 2) {
         this.answerService.updateAnswerById(event.id, true, false).subscribe(updated => {});
       }
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: event.key,
+      });
       this.router.navigate(['/chat', event.id]);
     }
   }
