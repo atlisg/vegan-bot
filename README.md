@@ -30,7 +30,7 @@ Optionally, use nodemon for automatic restart on changes
 
 ## Build and Deploy
 
-On the droplet, run
+After pulling on the droplet, run
 
 `ng build --prod`
 
