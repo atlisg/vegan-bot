@@ -44,7 +44,11 @@ To stop the server, first find the id of the process
 
 then run
 
-`forever stop <id>`
+`forever stop {pid}`
+
+or, to restart
+
+`forever restart {pid}`
 
 If IP address needs to be added to mongoDB, the IP address of the droplet can be shown with
 

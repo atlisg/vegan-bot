@@ -38,3 +38,4 @@
 ### In Progress
 
 * Make facebook shares look better
+  * Show question in subtitle (description)
