@@ -4,9 +4,7 @@
 
 #### Show stoppers
 
-* Make it Googlable
 * Implement Contact page
-* Obtain a license to be fully open source legit
 * Contact sources and ask permission to use their answers
 
 #### Normal

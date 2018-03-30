@@ -26,7 +26,6 @@
     "@ngx-share/button": "^5.0.0",
     "@ngx-share/buttons": "^5.0.0",
     "@ngx-share/core": "^5.0.0",
-    "angular2-notifications": "^0.9.6",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
