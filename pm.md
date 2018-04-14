@@ -42,5 +42,6 @@
 * Upgrade font awesome
 * Contact font maker and let him know I'm using his font
 * Set up email server for ch@veganbot.com
+* Refactor components majorly so that code is better reused
 
 #### Current
