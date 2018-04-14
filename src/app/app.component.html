@@ -24,6 +24,7 @@
     <span class="big-menu-bar">
       <span class="big-menu-bar-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
         <span *ngIf="item.route">{{item.value}}</span>
+        <i *ngIf="item.value === 'Contact'" class="fa fa-comment" aria-hidden="true"></i>
         <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
         <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
         <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>
@@ -34,6 +35,7 @@
 </div>
 <div [ngClass]="{'menu-open' : isOpen}" class="menu-container">
   <div class="menu-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
+    <i *ngIf="item.value === 'Contact'" class="fa fa-comment" aria-hidden="true"></i>
     <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
     <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
     <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>

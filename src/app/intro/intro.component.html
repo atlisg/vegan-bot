@@ -6,11 +6,20 @@
   </div>
   <div class="paragraph">
     I collect these answers and counter arguments from various sources. For more info on them,
-    navigate to the About page.
+    navigate to the
+    <a class="nav-link" [ngClass]="{'dark-theme': isDark}" routerLink="/about" routerLinkActive="active">
+      About Page</a>.
   </div>
   <div class="paragraph">
-    If you don't find an answer for your query, or you have any feedback at all, please contact me at
-    <a class="contact-email" [ngClass]="{'dark-theme': isDark}" href="mailto:atlisaevar@gmail.com?Subject=VeganBot" target="_top">atlisaevar@gmail.com</a>.
+    If you don't find an answer for your query, or you have any feedback at all, please leave it on the
+    <a class="nav-link" [ngClass]="{'dark-theme': isDark}" routerLink="/contact" routerLinkActive="active">
+      Contact Page</a>. You can also send me an email directly at
+    <a
+      class="nav-link"
+      [ngClass]="{'dark-theme': isDark}"
+      href="mailto:veganbot0@gmail.com?Subject=VeganBot"
+      target="_top"
+    >veganbot0@gmail.com</a>.
   </div>
   <div class="begin-button">
     <button (click)="startChatting()">BEGIN</button>

@@ -4,7 +4,6 @@
 
 #### Show stoppers
 
-* Implement Contact page
 * Contact sources and ask permission to use their answers
 
 #### Normal
@@ -42,3 +41,7 @@
 * Loading bar for autocomplete box
 * Upgrade font awesome
 * Contact font maker and let him know I'm using his font
+* Set up email server for ch@veganbot.com
+* Refactor components majorly so that code is better reused
+
+#### Current
