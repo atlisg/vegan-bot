@@ -22,9 +22,13 @@ button {
 }
 body {
   margin: 0 auto;
+  line-height: 1.4;
 }
 .content {
   padding: 24px;
+}
+ng2-auto-complete {
+  z-index: 2 !important;
 }
 .ng2-auto-complete {
   /* border: 2px solid #111; */
@@ -36,6 +40,7 @@ body {
     padding: 10px;
     border-color: #999;
     line-height: 1.2;
+    cursor: pointer;
     .dark-theme & {
       background-color: #333;
       color: #ddd;

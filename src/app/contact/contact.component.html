@@ -1,0 +1,50 @@
+<div class="content">
+  <div [hidden]="submitted">
+    <div class="contact-title">Contact</div>
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="form-container">
+  
+      <div class="form-group">
+        <input type="text" class="form-control email-field" id="email"
+                required
+                placeholder="Email"
+                [(ngModel)]="model.email" name="email"
+                #email="ngModel"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        <div [hidden]="email.valid || email.pristine"
+              class="alert alert-danger">
+          Email is invalid
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <input type="text" class="form-control subject-field" id="subject"
+                required
+                placeholder="Subject"
+                [(ngModel)]="model.subject" name="subject"
+                #subject="ngModel">
+        <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">
+          Subject is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control body-field" id="body"
+                cols="30" rows="6"
+                required
+                placeholder="Report an issue, ask a question, praise, rant, whatever. I'm listening."
+                [(ngModel)]="model.text" name="body"
+                #text="ngModel">
+        </textarea>
+        <div [hidden]="text.valid || text.pristine" class="alert-danger">
+          Email body is required
+        </div>
+      </div>
+  
+      <button type="submit" class="contact-submit" [disabled]="!contactForm.form.valid">SUBMIT</button>
+    </form>
+  </div>
+  
+  <div [hidden]="!submitted">
+    <h3>Thanks for your feedback!</h3>
+  </div>
+</div>

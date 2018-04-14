@@ -2,7 +2,6 @@ import { Component, OnInit, ElementRef, Pipe, PipeTransform } from '@angular/cor
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DomSanitizer, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { NotificationsService } from 'angular2-notifications';
 import { HttpModule } from '@angular/http';
 import { Subscription } from 'rxjs/Rx';
 import { AnswerService } from '../answer-services/answer.service';
@@ -62,7 +61,7 @@ export class ChatComponent implements OnInit {
     const url = this.router.url.split('/');
     if (url.length > 2) {
       const answerId = url[2];
-      this.getAnswerById(answerId);
+      this.getAnswerById(answerId, true);
     }
     const isTooSmall = document.body.clientWidth < 440;
     const hint = isTooSmall ? '' : '(hint: use keywords)';
@@ -75,11 +74,13 @@ export class ChatComponent implements OnInit {
     this.nextPlace = Math.floor(Math.random() * 4);
   }
 
-  getAnswerById(id) {
+  getAnswerById(id, shouldUpdateHits) {
     this.answerService.getAnswerById(id).subscribe(answer => {
       this.selectedAnswer = answer;
       this.triggerNewAnswerDisplay();
-      this.answerService.updateAnswerById(id, true, false).subscribe(updated => {});
+      if (shouldUpdateHits) {
+        this.answerService.updateAnswerById(answer.id, true, false).subscribe(updated => {});
+      }
       this.metaService.updateTag({
         property: 'og:title',
         content: answer.key,
@@ -112,16 +113,10 @@ export class ChatComponent implements OnInit {
 
   onSelect(event) {
     if (event.id) {
+      this.getAnswerById(event.id, this.router.url.split('/').length > 2);
       this.nextPlace++;
       this.nextPlace %= 4;
       this.triggerNewAnswerDisplay();
-      if (this.router.url.split('/').length > 2) {
-        this.answerService.updateAnswerById(event.id, true, false).subscribe(updated => {});
-      }
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: event.key,
-      });
       this.router.navigate(['/chat', event.id]);
     }
   }

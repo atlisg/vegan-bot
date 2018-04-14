@@ -3,9 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Answer } from '../models/answer.interface';
-
-/* const BASE_URL = 'http://localhost:3000/api/'; */
-const BASE_URL = 'http://veganbot.com/api/';
+import { BASE_URL } from '../globals';
 
 @Injectable()
 export class AnswerService {

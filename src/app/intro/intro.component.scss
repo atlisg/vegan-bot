@@ -13,6 +13,7 @@
   margin: 20px auto 0;
   border: none;
   max-width: 366px;
+  cursor: pointer;
 }
 .welcome-title {
   font-size: 30px;
@@ -23,7 +24,7 @@
   margin-bottom: 20px;
   line-height: 1.4;
 }
-.contact-email {
+.nav-link {
   color: teal;
   text-decoration: none;
 }

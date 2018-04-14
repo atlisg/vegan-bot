@@ -19,11 +19,10 @@
     .main-title {
       cursor: pointer;
       color: #00ff2b;
-      margin-top: 10px;
     }
     .subtitle {
       font-size: 13px;
-      margin-top: 10px;
+      margin-top: -4px;
       cursor: pointer;
       color: #ff7a00;
     }
@@ -43,6 +42,7 @@
   .bot-icon,
   .burger-icon {
     width: 30px;
+    cursor: pointer;
   }
   .top-menu-content {
     padding: 14px 34px;
@@ -65,8 +65,10 @@
   .menu-item {
     font-size: 24px;
     color: white;
-    padding: 25px;
+    padding: 27.5px;
+    line-height: normal;
     border-bottom: 1px solid #999;
+    cursor: pointer;
     &:hover {
       background-color: teal;
       i {
@@ -84,7 +86,7 @@
 .select-bot-container {
   left: -100%;
   .bot-item {
-    cursor: pointer;
+    padding: 24.5px;
     .bot-title {
       font-size: 20px;
     }
@@ -124,7 +126,7 @@
 .big-menu-bar,
 .big-bot-selector {
   font-size: 16px;
-  width: 260px;
+  width: 330px;
   cursor: pointer;
   i {
     color: #00ff2b;
@@ -134,7 +136,7 @@
     color: #fff;
   }
   .big-menu-bar-item {
-    padding: 18px 20px;
+    padding: 18px 10px;
     font-weight: normal;
     font-family: inherit;
     color: white;
@@ -158,14 +160,14 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
   .burger-icon,
   .bot-icon {
     display: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .big-menu-bar,
   .big-bot-selector {
     display: none;

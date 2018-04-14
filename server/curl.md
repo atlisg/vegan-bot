@@ -4,6 +4,8 @@ With header info
 `curl -i http://localhost:3000/api/answers`
 Prettified
 `curl http://localhost:3000/api/answers | python -m json.tool`
+With stats
+`curl http://localhost:3000/api/answers?orderBy=hits&printStats=true | python -m json.tool`
 
 #### GET answer by id
 
@@ -39,3 +41,10 @@ With header info
 `curl -i -H "Content-Type: application/json" -X PUT -d '{"hit":true,"share":false}' http://localhost:3000/api/answers/vcom-7`
 Prettified
 `curl -H "Content-Type: application/json" -X PUT -d '{"hit":"true","share":"false"}' http://localhost:3000/api/answers/vcom-7 | python -m json.tool`
+
+#### Send email
+
+With header info
+`curl -i -H "Content-Type: application/json" -X POST -d '{"email":"atli@dohop.com","subject":"Some feedback","text":"Great stuff!"}' http://localhost:3000/api/email`
+Prettified
+`curl -H "Content-Type: application/json" -X POST -d '{"email":"atli@dohop.com","subject":"Some feedback","text":"Great stuff!"}' http://localhost:3000/api/email | python -m json.tool`

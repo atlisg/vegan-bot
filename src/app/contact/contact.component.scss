@@ -1,0 +1,51 @@
+.form-container {
+  text-align: center;
+}
+.contact-title {
+  font-size: 30px;
+  margin: 20px 0;
+  color: #ff7a00;
+}
+.form-group {
+  padding: 10px 0;
+}
+.form-control {
+  padding: 20px;
+  background-color: #222;
+  width: calc(100% - 40px);
+  border: 1px solid #999;
+  font-size: 20px;
+  font-family: inherit;
+  color: #00ff2b;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #009a22;
+    font-size: 16px;
+  }
+}
+.body-field {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.4;
+}
+.alert-danger {
+  color: red;
+  padding: 5px 20px 0;
+  text-align: left;
+}
+.contact-submit {
+  background-color: #009a22;
+  height: 65px;
+  width: 100%;
+  max-width: 366px;
+  font-size: 32px;
+  color: white;
+  border: none;
+  margin: 20px 0;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+  }
+}

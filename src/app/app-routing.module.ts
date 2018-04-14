@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 import { ChatComponent } from './chat/chat.component';
 import { IntroComponent } from './intro/intro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
+  { path: 'contact', component: ContactComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'about', component: AboutComponent },
   { path: 'chat/:answer', component: ChatComponent },

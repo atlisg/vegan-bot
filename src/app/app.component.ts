@@ -41,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.isDark = d;
     });
     this.menuItems = [
+      { route: '/contact', value: 'Contact' },
       { route: '/about', value: 'About' },
       { route: '/intro', value: 'Help' },
       { value: this.isDark ? 'Brighten' : 'Darken' },
@@ -80,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   toggleTheme() {
     this.themeService.themeChanged(!this.isDark);
-    this.menuItems[2]['value'] = this.isDark ? 'Brighten' : 'Darken';
+    this.menuItems[3]['value'] = this.isDark ? 'Brighten' : 'Darken';
   }
 
   selectBot(bot) {
@@ -91,7 +92,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   isMobile() {
-    return document.body.clientWidth <= 768;
+    return document.body.clientWidth <= 1000;
   }
 
   toggleMenu() {

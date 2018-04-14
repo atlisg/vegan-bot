@@ -7,6 +7,15 @@ mongoose.connect(
 
 const Answer = require('../models/answer');
 
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'veganbot0@gmail.com',
+    pass: 'veganbot5%',
+  },
+});
+
 /**
  * Sort answers based on stats.
  */
@@ -193,6 +202,37 @@ router.delete('/answers', (req, res) => {
     } else {
       console.log('Answer with id ' + answer.id + ' successfully deleted.');
       res.status(200).send('Answer ' + answer.id + ' successfully deleted.');
+    }
+  });
+});
+
+/**
+ * Send email
+ */
+router.post('/email', (req, res) => {
+  console.log('POST /email');
+  console.log(req.body);
+  if (!req.body) {
+    res.status(404).send('Body must be sent with the request for this endpoint.');
+    return;
+  }
+
+  const mailOptions = {
+    from: 'veganbot0@gmail.com',
+    to: `${req.body.email}, veganbot0@gmail.com`,
+    subject: req.body.subject,
+    text: `Thanks for your feedback. I will get back to you as soon as I can.\n\nKind regards,\nAtli\n\n\nFrom ${
+      req.body.email
+    } using the contact page on veganbot.com:\n\n${req.body.text}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(404).send(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).send(info.response);
     }
   });
 });
