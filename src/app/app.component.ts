@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
@@ -23,14 +24,17 @@ export class AppComponent implements OnInit, OnDestroy {
   bots: Array<Bot>;
   menuItems: Array<Object>;
   isDark: boolean;
+  isBrowser: boolean;
 
   constructor(
     private router: Router,
     private selectBotService: SelectBotService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.selectedBot = this.selectBotService.getCurrentBot();
     this.bots = this.selectBotService.bots;
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
@@ -92,7 +96,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   isMobile() {
-    return document.body.clientWidth <= 1000;
+    return this.isBrowser ? document.body.clientWidth <= 1000 : true;
   }
 
   toggleMenu() {
