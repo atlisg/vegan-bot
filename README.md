@@ -60,4 +60,4 @@ If IP address needs to be added to mongoDB, the IP address of the droplet can be
 
 ## License
 
-`// TODO`
+`vegan-bot` is licensed under the MIT License

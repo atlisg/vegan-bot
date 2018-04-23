@@ -6,17 +6,34 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "dist/browser",
       "assets": ["assets", "vavicon.ico", "autotrack.js"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": ["styles.scss"],
       "scripts": [],
       "environmentSource": "environments/environments.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "platform": "server",
+      "root": "src",
+      "outDir": "dist/server",
+      "assets": ["assets", "vavicon.ico", "autotrack.js"],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "prefix": "app",
+      "styles": ["styles.scss"],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"

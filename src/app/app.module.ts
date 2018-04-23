@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
@@ -29,7 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
     SafeHtmlPipe,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'vegan-bot' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     Ng2AutoCompleteModule,
@@ -40,4 +41,12 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [SelectBotService, AnswerService, ThemeService, EmailService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: string
+  ) {
+    const platform = isPlatformBrowser(platformId) ? 'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
+}

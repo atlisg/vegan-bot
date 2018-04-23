@@ -8,8 +8,6 @@
 
 #### Normal
 
-* Switch to server side rendering
-  * So it's possible to change meta tags to show which question etc is being shared on Facebook
 * Add services:
   * animal-rights.com (https://www.animal-rights.com/faqfile.html)
   * some more
@@ -20,6 +18,7 @@
   * VeganEasy for the links
   * Vegan.com for the links
   * Viva for the links
+* Show stats in autocomlete results
 * Address console errors and warnings
 
 #### Nice to have
@@ -43,5 +42,10 @@
 * Contact font maker and let him know I'm using his font
 * Set up email server for ch@veganbot.com
 * Refactor components majorly so that code is better reused
+* Document API in README.md
+* Refactor servers (possibly combine the API server with the SSR server)
 
 #### Current
+
+* Switch to server side rendering
+  * So it's possible to change meta tags to show which question etc is being shared on e.g. Facebook
