@@ -17,6 +17,7 @@ import { SelectBotService } from './select-bot/select-bot.service';
 import { AnswerService } from './answer-services/answer.service';
 import { ThemeService } from './theme/theme.service';
 import { EmailService } from './email/email.service';
+import { MetaService } from './meta/meta.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -38,7 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
     ShareButtonsModule.forRoot(),
     FormsModule,
   ],
-  providers: [SelectBotService, AnswerService, ThemeService, EmailService],
+  providers: [SelectBotService, AnswerService, ThemeService, EmailService, MetaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

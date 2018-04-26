@@ -30,13 +30,17 @@ Optionally, use nodemon for automatic restart on changes
 
 ## Build and Deploy
 
-After pulling on the droplet, run
+After pulling on the droplet, build the app with server side rendering with
 
-`ng build --prod`
+`npm run build:ssr`
 
-Then, start the server with Forever
+Then, start the API server with Forever
 
-`PORT=80 forever start server.js`
+`forever start server.js`
+
+Then start the SSR server with
+
+`PORT=80 forever start dist/server.js`
 
 To stop the server, first find the id of the process
 
@@ -45,10 +49,6 @@ To stop the server, first find the id of the process
 then run
 
 `forever stop {pid}`
-
-or, to restart
-
-`forever restart {pid}`
 
 If IP address needs to be added to mongoDB, the IP address of the droplet can be shown with
 
