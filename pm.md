@@ -47,7 +47,3 @@
 * Refactor servers (possibly combine the API server with the SSR server)
 
 #### Current
-
-* Add more info to facebook share
-  * Name of source
-  * Start of answer
