@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, Pipe, PipeTransform } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { DomSanitizer, Meta } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { Subscription } from 'rxjs/Rx';
@@ -9,6 +9,7 @@ import { Bot } from '../models/bot.interface';
 import { Answer } from '../models/answer.interface';
 import { SelectBotService } from '../select-bot/select-bot.service';
 import { ThemeService } from '../theme/theme.service';
+import { MetaService } from '../meta/meta.service';
 import { triggerOptions } from './trigger.options';
 
 @Pipe({ name: 'safeHtml' })
@@ -46,7 +47,7 @@ export class ChatComponent implements OnInit {
     private selectBotService: SelectBotService,
     private answerService: AnswerService,
     private router: Router,
-    private metaService: Meta,
+    private metaService: MetaService,
     private themeService: ThemeService
   ) {}
 
@@ -81,10 +82,10 @@ export class ChatComponent implements OnInit {
       if (shouldUpdateHits) {
         this.answerService.updateAnswerById(answer.id, true, false).subscribe(updated => {});
       }
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: answer.key,
-      });
+      this.metaService.updateMetaTitleAndDescription(
+        answer.key,
+        `${answer.source.name}: ${answer.answer.join(' ')}`
+      );
     });
   }
 

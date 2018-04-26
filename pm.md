@@ -20,6 +20,7 @@
   * Viva for the links
 * Show stats in autocomlete results
 * Address console errors and warnings
+* Stop using this document and start using issues in Github
 
 #### Nice to have
 
@@ -46,6 +47,3 @@
 * Refactor servers (possibly combine the API server with the SSR server)
 
 #### Current
-
-* Switch to server side rendering
-  * So it's possible to change meta tags to show which question etc is being shared on e.g. Facebook
