@@ -1,7 +1,7 @@
 <div class="content">
   <div class="welcome-title">About this project</div>
   <div class="paragraph">
-    At the moment there are {{bots.length}} sources providing answers in VeganBot. They are:
+    At this moment there are {{bots.length}} sources providing answers in VeganBot. They are:
   </div>
   <div class="sources-list" *ngFor="let bot of bots">
     <a class="source-link" [ngClass]="{'dark-theme': isDark}" target="_blank" href="{{bot.homepage}}">{{bot.title}}</a>
@@ -14,7 +14,7 @@
   </div>
   <div class="subsection-title">The code</div>
   <div class="paragraph">
-    This is an open source project and all contributions are welcomed. The github repo is
+    This is an open source project and all contributions are welcomed. The Github repo is
     <a class="github-link" [ngClass]="{'dark-theme': isDark}" target="_blank" href="https://github.com/atlisg12/vegan-bot">here</a>.
   </div>
   <div class="bot-drawing"></div>
