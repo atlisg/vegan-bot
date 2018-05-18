@@ -18,15 +18,21 @@ A bot with all the answers to frequently asked questions and arguments about veg
 
 Navigate to `http://localhost:4200/`
 
-## Build client and run server
+## Build client
 
 `ng build`
+
+## Run API server
 
 `node server.js`
 
 Optionally, use nodemon for automatic restart on changes
 
 `nodemon server.js`
+
+## Run SSR server
+
+`node server.ts`
 
 ## Build and Deploy
 
@@ -42,13 +48,23 @@ Then start the SSR server with
 
 `PORT=80 forever start dist/server.js`
 
-To stop the server, first find the id of the process
+## Useful commands
+
+To stop the servers, first find the id of the process
 
 `forever list`
 
 then run
 
 `forever stop {pid}`
+
+To monitor logs from the servers, first run
+
+`forever logs`
+
+to see the running processes logs, then run
+
+`tail FILENAME -f -n 100`
 
 If IP address needs to be added to mongoDB, the IP address of the droplet can be shown with
 

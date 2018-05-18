@@ -1,5 +1,18 @@
 <div class="content">
-  <div class="welcome-title">About this project</div>
+  <div class="welcome-title">What is VeganBot?</div>
+  <div class="paragraph">
+    VeganBot tries to solve 2 problems at once:
+  </div>
+  <div class="paragraph">
+    1. As a vegan, you sometimes get questions or comments that you're not sure how to answer.
+    Find answers on VeganBot to choose from or cherrypick from many to form your own.
+    You can also share answers directly to social media.
+  </div>
+  <div class="paragraph">
+    2. As a non-vegan, you might have questions or comments about veganism but for some reason can't or won't talk to a real person.
+    VeganBot has got all the answers you need.
+  </div>
+  <div class="subsection-title">Where do the answers come from?</div>
   <div class="paragraph">
     At this moment there are {{bots.length}} sources providing answers in VeganBot. They are:
   </div>
@@ -8,14 +21,15 @@
     ({{bot.answerCount}} answers)
   </div>
   <div class="sources-total">Total: {{getTotalAnswerCount()}} answers</div>
-  <div class="subsection-title">The story</div>
-  <div class="paragraph">
-    It all started when the idea was born. Now it has been realized.
-  </div>
-  <div class="subsection-title">The code</div>
+  <div class="subsection-title">Where is the code?</div>
   <div class="paragraph">
     This is an open source project and all contributions are welcomed. The Github repo is
     <a class="github-link" [ngClass]="{'dark-theme': isDark}" target="_blank" href="https://github.com/atlisg12/vegan-bot">here</a>.
+  </div>
+  <div class="subsection-title">Do you have all the answers?</div>
+  <div class="paragraph">
+    If you think you have some good answers and want to become a source for answers on VeganBot, please contact me
+    <a class="nav-link" [ngClass]="{'dark-theme': isDark}" routerLink="/contact" routerLinkActive="active">here</a>.
   </div>
   <div class="bot-drawing"></div>
 </div>
