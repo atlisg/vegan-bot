@@ -1,10 +1,12 @@
+@import '../../variables.scss';
+
 .begin-button {
   width: 100%;
   height: 65px;
   text-align: center;
 }
 .begin-button button {
-  background-color: #009a22;
+  background-color: $button-color;
   font-size: 32px;
   color: white;
   width: 100%;
@@ -18,18 +20,18 @@
 .welcome-title {
   font-size: 30px;
   margin: 20px 0;
-  color: #ff7a00;
+  color: $secondary-color;
 }
 .paragraph {
   margin-bottom: 20px;
   line-height: 1.4;
 }
 .nav-link {
-  color: teal;
+  color: $primary-color;
   text-decoration: none;
 }
 .dark-theme {
-  color: aqua;
+  color: $accent-color;
 }
 .bot-drawing-all {
   background: url('/assets/veganbot_all_answers2_teal.png');

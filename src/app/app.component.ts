@@ -45,10 +45,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.isDark = d;
     });
     this.menuItems = [
-      { route: '/contact', value: 'Contact' },
+      { route: '/chat', value: 'Chat' },
       { route: '/about', value: 'About' },
-      { route: '/intro', value: 'Help' },
-      { value: this.isDark ? 'Brighten' : 'Darken' },
+      { route: '/createdby', value: 'Created by' },
+      { route: '/contact', value: 'Contact' },
     ];
   }
 

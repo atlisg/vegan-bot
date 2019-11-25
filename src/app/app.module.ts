@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { ChatComponent, SafeHtmlPipe } from './chat/chat.component';
 import { AboutComponent } from './about/about.component';
+import { CreatedByComponent } from './createdby/createdby.component';
 import { ContactComponent } from './contact/contact.component';
 
 import { SelectBotService } from './select-bot/select-bot.service';
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     IntroComponent,
     ChatComponent,
     AboutComponent,
+    CreatedByComponent,
     ContactComponent,
     SafeHtmlPipe,
   ],

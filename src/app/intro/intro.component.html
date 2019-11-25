@@ -1,17 +1,23 @@
 <div class="content">
   <div class="welcome-title">Welcome, human!</div>
   <div class="paragraph">
-    I am VeganBot. I provide answers to frequently asked questions about veganism,
-    as well as counter arguments for common justifications for animal abuse.
-    My aim is to educate and train people in the vegan conversation, so that veganism can spread even faster.
+    I am VeganBot. I provide answers to frequently asked questions about veganism, as well as
+    counter arguments for common justifications for animal abuse. My aim is to educate and train
+    people in the vegan conversation, so that veganism can spread even faster.
   </div>
   <div class="paragraph">
     I collect these answers and counter arguments from various sources. For more info on them,
     navigate to the
-    <a class="nav-link" [ngClass]="{'dark-theme': isDark}" routerLink="/about" routerLinkActive="active">
-      About Page</a>.
+    <a
+      class="nav-link"
+      [ngClass]="{ 'dark-theme': isDark }"
+      routerLink="/about"
+      routerLinkActive="active"
+    >
+      About Page</a
+    >.
   </div>
-  <div class="bot-drawing-all" [ngClass]="{'dark-theme': isDark}"></div>
+  <div class="bot-drawing-all" [ngClass]="{ 'dark-theme': isDark }"></div>
   <div class="begin-button">
     <button (click)="startChatting()">BEGIN</button>
   </div>

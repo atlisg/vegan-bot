@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .answer {
   padding-bottom: 50px;
 }
@@ -8,34 +10,34 @@
   word-break: break-all;
   font-size: 13px;
   line-height: 0;
-  color: teal;
+  color: $primary-color;
   text-decoration: none;
 }
 .dark-theme {
-  color: aqua;
+  color: $accent-color;
 }
 .chat-input {
   width: calc(100% - 40px);
   padding: 20px;
-  border: 1px solid #999;
+  border: 1px solid $border-color9;
   font-size: 20px;
   font-family: inherit;
-  background: #222;
-  color: #00ff2b;
+  background: $background2;
+  color: #fff;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: #009a22;
+    color: $off-white;
     font-size: 16px;
   }
 }
 .your-input-header {
   margin-top: 30px;
-  color: #ff7a00;
+  color: $secondary-color;
 }
 .bot-answer-header {
-  color: teal;
+  color: $primary-color;
 }
 .your-input-header,
 .bot-answer-header {
@@ -59,7 +61,7 @@
   z-index: 1;
 }
 .share-button {
-  background-color: teal;
+  background-color: $primary-color;
   border: none;
   max-width: 366px;
   font-size: 32px;
@@ -70,6 +72,22 @@
   margin: auto 0;
   border: none;
 }
+.instructions {
+  margin-top: 30px;
+}
+.header {
+  font-size: 30px;
+  margin: 20px 0;
+  color: $secondary-color;
+}
+.nav-link {
+  color: $primary-color;
+  text-decoration: none;
+}
+.dark-theme {
+  color: $accent-color;
+}
+
 @keyframes blink-animation {
   50% {
     visibility: hidden;

@@ -13,21 +13,25 @@
   />
   <div id="ans" class="answer" *ngIf="selectedAnswer">
     <h3 class="your-input-header" [@yourInputHeaderState]="state">You:</h3>
-    <div class="your-input" [@yourInputState]="state">{{selectedAnswer.key}}</div>
-    <h3 class="bot-answer-header" [ngClass]="{'dark-theme': isDark}" [@botAnswerHeaderState]="state">
-      {{selectedAnswer.source.name}}:
+    <div class="your-input" [@yourInputState]="state">{{ selectedAnswer.key }}</div>
+    <h3
+      class="bot-answer-header"
+      [ngClass]="{ 'dark-theme': isDark }"
+      [@botAnswerHeaderState]="state"
+    >
+      {{ selectedAnswer.source.name }}:
     </h3>
     <div class="bot-answer" [@botAnswerState]="state">
       <div *ngFor="let paragraph of selectedAnswer.answer; let i = index" class="paragraph">
-        <span *ngIf="paragraph && paragraph.substr(0,4) !== 'http'">{{paragraph}}</span>
+        <span *ngIf="paragraph && paragraph.substr(0, 4) !== 'http'">{{ paragraph }}</span>
         <a
-          *ngIf="paragraph && paragraph.substr(0,4) === 'http'"
+          *ngIf="paragraph && paragraph.substr(0, 4) === 'http'"
           target="_blank"
-          href="{{paragraph}}"
+          href="{{ paragraph }}"
           class="link-in-answer"
-          [ngClass]="{'dark-theme': isDark}"
+          [ngClass]="{ 'dark-theme': isDark }"
         >
-          {{paragraph}}
+          {{ paragraph }}
         </a>
       </div>
     </div>
@@ -49,6 +53,70 @@
       showCount="true"
       gaTracking="true"
     ></share-button>
+    <share-button
+      (click)="share()"
+      button="whatsapp"
+      text="Send"
+      showText="true"
+      showCount="true"
+      gaTracking="true"
+    ></share-button>
+    <share-button
+      (click)="share()"
+      button="linkedin"
+      text="Post"
+      showText="true"
+      showCount="true"
+      gaTracking="true"
+    ></share-button>
+    <share-button
+      (click)="share()"
+      button="reddit"
+      text="Thread"
+      showText="true"
+      showCount="true"
+      gaTracking="true"
+    ></share-button>
   </div>
-  <div class="bot-drawing"></div>
+  <div class="instructions" *ngIf="!selectedAnswer">
+    <div class="header">Intro</div>
+    <div class="paragraph">
+      VeganBot provides answers to frequently asked questions about veganism, as well as counter
+      arguments for common justifications for animal abuse. The aim is to educate and train people
+      in the vegan conversation, so that veganism can spread even faster.
+    </div>
+    <div class="paragraph">
+      These answers and counter arguments are collected from various sources. For more info on them,
+      navigate to the
+      <a
+        class="nav-link"
+        [ngClass]="{ 'dark-theme': isDark }"
+        routerLink="/about"
+        routerLinkActive="active"
+      >
+        About Page</a
+      >.
+    </div>
+    <div class="header">Instructions</div>
+    <div class="paragraph">
+      Use keywords to search, e.g. if you'd like to see answers to the well known "Where do vegans
+      get their protein?", just type "protein". If you want to see answers to the old classic
+      "Plants have feelings too", just type "plants" or "feelings".
+    </div>
+    <div class="paragraph">
+      The words you enter into the search bar are used to search the database of both
+      questions/arguments and answers.
+    </div>
+    <div class="paragraph">
+      If you don't find what you're looking for try different keywords. If still no luck, please
+      send me a line
+      <a
+        class="nav-link"
+        [ngClass]="{ 'dark-theme': isDark }"
+        routerLink="/contact"
+        routerLinkActive="active"
+        >here</a
+      >.
+    </div>
+  </div>
 </div>
