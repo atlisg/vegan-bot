@@ -1,27 +1,29 @@
+@import '../../variables.scss';
+
 .form-container {
   text-align: center;
 }
 .contact-title {
   font-size: 30px;
   margin: 20px 0;
-  color: #ff7a00;
+  color: $secondary-color;
 }
 .form-group {
   padding: 10px 0;
 }
 .form-control {
   padding: 20px;
-  background-color: #222;
+  background-color: $background2;
   width: calc(100% - 40px);
-  border: 1px solid #999;
+  border: 1px solid $border-color9;
   font-size: 20px;
   font-family: inherit;
-  color: #00ff2b;
+  color: #fff;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: #009a22;
+    color: $off-white;
     font-size: 16px;
   }
 }
@@ -36,7 +38,7 @@
   text-align: left;
 }
 .contact-submit {
-  background-color: #009a22;
+  background-color: $button-color;
   height: 65px;
   width: 100%;
   max-width: 366px;

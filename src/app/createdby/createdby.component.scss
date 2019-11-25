@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.created-by-title {
+  font-size: 30px;
+  margin: 20px 0;
+  color: $secondary-color;
+}
+.paragraph {
+  margin-bottom: 20px;
+}
+.source-link {
+  color: $primary-color;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.nav-link {
+  color: $primary-color;
+  text-decoration: none;
+}
+.dark-theme {
+  color: $accent-color;
+}
+.atli-pix {
+  background: url('/assets/tveir_i_sjotta.jpg');
+  background-size: calc(200vw - 96px);
+  height: calc(50vw - 24px);
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 480px) {
+  .atli-pix {
+    background-size: 600px;
+    width: 300px;
+    height: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 25px;
+  }
+}

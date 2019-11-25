@@ -67,12 +67,14 @@ export class ChatComponent implements OnInit {
     const isTooSmall = document.body.clientWidth < 440;
     const hint = isTooSmall ? '' : '(hint: use keywords)';
     this.placeholders = [
+      'Search',
       `Give me input. ${hint}`,
       `Enter characters. ${hint}`,
       `Feed me. ${hint}`,
       `I eat your words. ${hint}`,
     ];
     this.nextPlace = Math.floor(Math.random() * 4);
+    this.nextPlace = 0;
   }
 
   getAnswerById(id, shouldUpdateHits) {

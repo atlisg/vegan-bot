@@ -1,6 +1,7 @@
 @import '~font-awesome/css/font-awesome.min.css';
 @import '~@ngx-share/button/styles/share-buttons';
 @import '~@ngx-share/button/styles/themes/default/default-theme';
+@import './variables.scss';
 
 @font-face {
   font-family: 'Inconsolata';
@@ -26,6 +27,7 @@ body {
 }
 .content {
   padding: 24px;
+  opacity: 1;
 }
 ng2-auto-complete {
   z-index: 2 !important;
@@ -33,24 +35,24 @@ ng2-auto-complete {
 .ng2-auto-complete {
   /* border: 2px solid #111; */
   .ng-star-inserted {
-    border-color: #999;
+    border-color: $border-color9;
   }
   .item {
-    background-color: #ddd;
+    background-color: $off-white;
     padding: 10px;
-    border-color: #999;
+    border-color: $border-color9;
     line-height: 1.2;
     cursor: pointer;
     .dark-theme & {
-      background-color: #333;
-      color: #ddd;
+      background-color: $background3;
+      color: $off-white;
     }
     &:hover,
     &.selected {
-      background-color: teal;
-      color: #ddd;
+      background-color: $primary-color;
+      color: $off-white;
       .answer-source {
-        color: aqua;
+        color: $accent-color;
       }
     }
   }
@@ -58,7 +60,7 @@ ng2-auto-complete {
   .no-match-found {
     padding: 10px;
     .dark-theme & {
-      background-color: #333;
+      background-color: $background3;
     }
   }
   ul {
@@ -67,25 +69,31 @@ ng2-auto-complete {
   .answer-source {
     font-size: 12px;
     margin-top: 5px;
-    color: teal;
+    color: $primary-color;
     .dark-theme & {
-      color: #ff7a00;
+      color: $secondary-color;
     }
   }
 }
 
 .bot-drawing {
-  background: url('/assets/veganbot_all_answers2_teal.png');
-  background-size: 250px;
-  opacity: 0.5;
-  height: 301px;
-  width: 250px;
-  background-repeat: no-repeat;
-  position: fixed;
-  bottom: 0px;
-  right: 30px;
+  background: url('/assets/veganbot_all_answers2_teal.png') no-repeat;
+  background-size: cover;
+  width: calc(100vw - 48px);
+  height: 100vw;
   .dark-theme & {
-    background: url('/assets/veganbot_all_answers2.png');
+    background: url('/assets/veganbot_all_answers2.png') no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 480px) {
+  .bot-drawing {
     background-size: 250px;
+    width: 250px;
+    height: 301px;
+    float: right;
+    margin-left: 30px;
+    margin-bottom: 15px;
   }
 }

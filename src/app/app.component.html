@@ -13,7 +13,7 @@
       <span class="title-sides"></span>
       <span class="title-buttons">
         <div class="main-title" (click)="goToMain()">VeganBot</div>
-        <div class="subtitle" (click)="toggleBotMenu()">{{selectedBot.title}} mode</div>
+        <div class="subtitle" (click)="toggleBotMenu()">{{ selectedBot.title }} mode</div>
       </span>
       <span class="title-sides"></span>
     </span>
@@ -23,40 +23,39 @@
     </span>
     <span class="big-menu-bar">
       <span class="big-menu-bar-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
-        <span *ngIf="item.route">{{item.value}}</span>
-        <i *ngIf="item.value === 'Contact'" class="fa fa-comment" aria-hidden="true"></i>
-        <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
+        <span *ngIf="item.route">{{ item.value }}</span>
+        <i *ngIf="item.value === 'Contact'" class="fa fa-at" aria-hidden="true"></i>
+        <i *ngIf="item.value === 'Chat'" class="fa fa-comment" aria-hidden="true"></i>
         <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
-        <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>
-        <i *ngIf="item.value === 'Brighten'" class="fa fa-sun-o" aria-hidden="true"></i>
+        <i *ngIf="item.value === 'Created by'" class="fa fa-code" aria-hidden="true"></i>
       </span>
     </span>
   </div>
 </div>
-<div [ngClass]="{'menu-open' : isOpen}" class="menu-container">
+<div [ngClass]="{ 'menu-open': isOpen }" class="menu-container">
   <div class="menu-item" *ngFor="let item of menuItems" (click)="selectItem(item)">
-    <i *ngIf="item.value === 'Contact'" class="fa fa-comment" aria-hidden="true"></i>
-    <i *ngIf="item.value === 'Help'" class="fa fa-info" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Contact'" class="fa fa-at" aria-hidden="true"></i>
+    <i *ngIf="item.value === 'Chat'" class="fa fa-comment" aria-hidden="true"></i>
     <i *ngIf="item.value === 'About'" class="fa fa-star" aria-hidden="true"></i>
-    <i *ngIf="item.value === 'Darken'" class="fa fa-moon-o" aria-hidden="true"></i>
-    <i *ngIf="item.value === 'Brighten'" class="fa fa-sun-o" aria-hidden="true"></i>
-    <span>{{item.value}}</span>
+    <i *ngIf="item.value === 'Created by'" class="fa fa-code" aria-hidden="true"></i>
+    <span>{{ item.value }}</span>
   </div>
 </div>
 <div
-  [ngClass]="{'menu-open select-bot-open' : isSelectBotOpen}"
+  [ngClass]="{ 'menu-open select-bot-open': isSelectBotOpen }"
   class="menu-container select-bot-container"
 >
   <div
     class="menu-item bot-item"
-    [ngClass]="{ 'selected' : isBotSelected(bot) }"
+    [ngClass]="{ selected: isBotSelected(bot) }"
     *ngFor="let bot of bots"
     (click)="selectBot(bot)"
   >
-      <div class="bot-title">{{bot.title}}</div>
-      <div class="bot-answer-count">{{bot.answerCount}} Answers</div>
+    <div class="bot-title">{{ bot.title }}</div>
+    <div class="bot-answer-count">{{ bot.answerCount }} Answers</div>
   </div>
 </div>
-<div class="app-content" [ngClass]="{'dark-theme' : isDark}">
+<div class="space"></div>
+<div class="app-content" [ngClass]="{ 'dark-theme': isDark }">
   <router-outlet></router-outlet>
 </div>

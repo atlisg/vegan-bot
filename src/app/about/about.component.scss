@@ -1,30 +1,32 @@
+@import '../../variables.scss';
+
 .sources-list {
   padding-bottom: 10px;
 }
 .welcome-title {
   font-size: 30px;
   margin: 20px 0;
-  color: #ff7a00;
+  color: $secondary-color;
 }
 .subsection-title {
   font-size: 24px;
   margin: 20px 0;
-  color: #ff7a00;
+  color: $secondary-color;
 }
 .paragraph {
   margin-bottom: 20px;
 }
 .source-link,
 .github-link {
-  color: teal;
+  color: $primary-color;
   text-decoration: none;
   position: relative;
   z-index: 1;
 }
 .nav-link {
-  color: teal;
+  color: $primary-color;
   text-decoration: none;
 }
 .dark-theme {
-  color: aqua;
+  color: $accent-color;
 }
