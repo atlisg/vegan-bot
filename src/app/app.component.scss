@@ -154,7 +154,6 @@
   text-align: left;
   padding-top: 18px;
 }
-
 .dark-theme {
   color: #eee;
   background-color: rgba(0, 0, 0, 0.5);
@@ -162,7 +161,6 @@
     color: $head-color;
   }
 }
-
 .space {
   position: fixed;
   top: 85px;
@@ -173,6 +171,20 @@
   width: 100vw;
   opacity: 0.7;
   z-index: -1;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: $background2;
+  color: white;
+  text-align: center;
+}
+.ext-link {
+  color: $accent-color;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 1001px) {

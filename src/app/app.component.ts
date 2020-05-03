@@ -38,16 +38,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.botSubscription = this.selectBotService.bot.subscribe(b => {
+    this.botSubscription = this.selectBotService.bot.subscribe((b) => {
       this.selectedBot = b;
     });
-    this.isDarkSubscription = this.themeService.isDark.subscribe(d => {
+    this.isDarkSubscription = this.themeService.isDark.subscribe((d) => {
       this.isDark = d;
     });
     this.menuItems = [
       { route: '/chat', value: 'Chat' },
       { route: '/about', value: 'About' },
-      { route: '/createdby', value: 'Created by' },
       { route: '/contact', value: 'Contact' },
     ];
   }
