@@ -6,13 +6,16 @@ mongoose.connect(
 );
 
 const Answer = require('../models/answer');
+const Auth = require('../.auth');
 
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  port: 587,
+  secure: false,
   auth: {
-    user: 'veganbot0@gmail.com',
-    pass: 'veganbot5%',
+    user: Auth.user,
+    pass: Auth.pass,
   },
 });
 
@@ -219,9 +222,9 @@ router.post('/email', (req, res) => {
 
   const mailOptions = {
     from: 'veganbot0@gmail.com',
-    to: `${req.body.email}, veganbot0@gmail.com`,
+    to: `${req.body.email}, ethicode@ethicode.org`,
     subject: req.body.subject,
-    text: `Thanks for your feedback. I will get back to you as soon as I can.\n\nKind regards,\nAtli\n\n\nFrom ${
+    text: `Thanks for your feedback. I will get back to you as soon as robotly possible.\n\nKind regards,\nVeganBot\n\n\nFrom ${
       req.body.email
     } using the contact page on veganbot.com:\n\n${req.body.text}`,
   };
