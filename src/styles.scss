@@ -16,6 +16,10 @@
   src: url('/assets/white-rabbit/whitrabt.woff2') format('woff2'),
     url('/assets/white-rabbit/whitrabt.woff') format('woff');
 }
+@font-face {
+  font-family: Righteous;
+  src: url('/assets/Righteous/Righteous-Regular.ttf') format('ttf')
+}
 
 body,
 button {
@@ -26,8 +30,8 @@ body {
   line-height: 1.4;
 }
 .content {
-  padding: 24px;
-  opacity: 1;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 ng2-auto-complete {
   z-index: 2 !important;

@@ -19,6 +19,7 @@
       flex-grow: 1;
     }
     .main-title {
+      font-family: Righteous;
       cursor: pointer;
       color: $head-color;
     }
@@ -123,8 +124,8 @@
   max-width: 768px;
   margin: 85px 0 0;
   padding: 0 calc((100% - 768px) / 2);
-  height: calc(100% - 85px);
-  min-height: calc(100vh - 85px);
+  height: calc(100% - 127px);
+  min-height: calc(100vh - 127px);
   color: $background2;
 }
 .big-menu-bar,
@@ -156,7 +157,7 @@
 }
 .dark-theme {
   color: #eee;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   a.contact-email {
     color: $head-color;
   }
@@ -165,20 +166,23 @@
   position: fixed;
   top: 85px;
   left: 0;
-  background: url('/assets/milky-way.jpg') no-repeat center;
+  background: url('/assets/checkit.jpg') no-repeat center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  opacity: 0.7;
   z-index: -1;
 }
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 0;
   background-color: $background2;
   color: white;
   text-align: center;
+}
+.powered-by,
+.ethicode-link {
+  padding: 0 30px;
 }
 .ext-link {
   color: $accent-color;
