@@ -39,7 +39,7 @@
     "angular-in-memory-web-api": "~0.5.0",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.3",
